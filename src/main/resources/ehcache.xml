@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns='http://www.ehcache.org/v3'
+         xsi:schemaLocation="http://www.ehcache.org/v3 http://www.ehcache.org/schema/ehcache-core-3.0.xsd">
+
+    <cache-template name="simple">
+        <expiry>
+            <ttl unit="seconds">3600</ttl>
+        </expiry>
+        <heap>100</heap>
+    </cache-template>
+
+    <cache alias="fr.hack47.domain.User" uses-template="simple"/>
+
+    <cache alias="fr.hack47.domain.Authority" uses-template="simple"/>
+
+    <cache alias="fr.hack47.domain.User.authorities" uses-template="simple"/>
+
+    <cache alias="fr.hack47.domain.PersistentToken" uses-template="simple"/>
+
+    <cache alias="fr.hack47.domain.User.persistentTokens" uses-template="simple"/>
+
+    <cache alias="fr.hack47.domain.QuestionAnswer" uses-template="simple"/>
+
+    <cache alias="fr.hack47.domain.QuestionAnswerTheme" uses-template="simple"/>
+
+    <cache alias="fr.hack47.domain.Theme" uses-template="simple"/>
+
+    <cache alias="fr.hack47.domain.Player" uses-template="simple"/>
+
+    <cache alias="fr.hack47.domain.PersonnagePlayer" uses-template="simple"/>
+
+    <cache alias="fr.hack47.domain.Personnage" uses-template="simple"/>
+
+    <cache alias="fr.hack47.domain.PersonnageLevelStage" uses-template="simple"/>
+
+    <cache alias="fr.hack47.domain.LevelStage" uses-template="simple"/>
+
+    <cache alias="fr.hack47.domain.BuildingTypeLevelStage" uses-template="simple"/>
+
+    <cache alias="fr.hack47.domain.BuildingType" uses-template="simple"/>
+
+    <cache alias="fr.hack47.domain.QuestionAnswerPlayer" uses-template="simple"/>
+
+    <!-- jhipster-needle-ehcache-add-entry -->
+</config>

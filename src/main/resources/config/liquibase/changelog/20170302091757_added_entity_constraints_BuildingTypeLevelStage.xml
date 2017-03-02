@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity BuildingTypeLevelStage.
+    -->
+    <changeSet id="20170302091757-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="level_stage_id"
+                                 baseTableName="building_type_level_stage"
+                                 constraintName="fk_building_type_level_stage_level_stage_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="level_stage"/>
+
+        <addForeignKeyConstraint baseColumnNames="building_type_id"
+                                 baseTableName="building_type_level_stage"
+                                 constraintName="fk_building_type_level_stage_building_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="building_type"/>
+
+    </changeSet>
+</databaseChangeLog>

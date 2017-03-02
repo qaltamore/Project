@@ -1,0 +1,24 @@
+{
+    "hack47App": {
+        "buildingTypeLevelStage" : {
+            "home": {
+                "title": "BuildingTypeLevelStages",
+                "createLabel": "Créer un nouveau Building Type Level Stage",
+                "createOrEditLabel": "Créer ou éditer un Building Type Level Stage",
+                "search": "Recherche pour Building Type Level Stage"
+            },
+            "created": "Un nouveau Building Type Level Stage a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Building Type Level Stage avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Building Type Level Stage avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Building Type Level Stage {{ id }} ?"
+            },
+            "detail": {
+                "title": "Building Type Level Stage"
+            },
+            "buildingsQuantity": "Buildings Quantity",
+            "levelStage": "Level Stage",
+            "buildingType": "Building Type"
+        }
+    }
+}

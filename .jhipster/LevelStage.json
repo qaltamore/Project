@@ -1,0 +1,19 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "idLevelStage",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numero",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20170302091756",
+    "entityTableName": "level_stage",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

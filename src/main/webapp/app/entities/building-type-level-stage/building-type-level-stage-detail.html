@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span data-translate="hack47App.buildingTypeLevelStage.detail.title">Building Type Level Stage</span> {{vm.buildingTypeLevelStage.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="hack47App.buildingTypeLevelStage.buildingsQuantity">Buildings Quantity</span></dt>
+        <dd>
+            <span>{{vm.buildingTypeLevelStage.buildingsQuantity}}</span>
+        </dd>
+        <dt><span data-translate="hack47App.buildingTypeLevelStage.levelStage">Level Stage</span></dt>
+        <dd>
+            <a ui-sref="level-stage-detail({id:vm.buildingTypeLevelStage.levelStage.id})">{{vm.buildingTypeLevelStage.levelStage.id}}</a>
+        </dd>
+        <dt><span data-translate="hack47App.buildingTypeLevelStage.buildingType">Building Type</span></dt>
+        <dd>
+            <a ui-sref="building-type-detail({id:vm.buildingTypeLevelStage.buildingType.id})">{{vm.buildingTypeLevelStage.buildingType.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="building-type-level-stage-detail.edit({id:vm.buildingTypeLevelStage.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,27 @@
+
+<div>
+    <h2><span data-translate="hack47App.questionAnswerPlayer.detail.title">Question Answer Player</span> {{vm.questionAnswerPlayer.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="hack47App.questionAnswerPlayer.player">Player</span></dt>
+        <dd>
+            <a ui-sref="player-detail({id:vm.questionAnswerPlayer.player.id})">{{vm.questionAnswerPlayer.player.id}}</a>
+        </dd>
+        <dt><span data-translate="hack47App.questionAnswerPlayer.questionAnswer">Question Answer</span></dt>
+        <dd>
+            <a ui-sref="question-answer-detail({id:vm.questionAnswerPlayer.questionAnswer.id})">{{vm.questionAnswerPlayer.questionAnswer.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="question-answer-player-detail.edit({id:vm.questionAnswerPlayer.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

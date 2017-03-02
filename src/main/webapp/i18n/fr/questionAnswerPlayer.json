@@ -1,0 +1,23 @@
+{
+    "hack47App": {
+        "questionAnswerPlayer" : {
+            "home": {
+                "title": "QuestionAnswerPlayers",
+                "createLabel": "Créer un nouveau Question Answer Player",
+                "createOrEditLabel": "Créer ou éditer un Question Answer Player",
+                "search": "Recherche pour Question Answer Player"
+            },
+            "created": "Un nouveau Question Answer Player a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Question Answer Player avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Question Answer Player avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Question Answer Player {{ id }} ?"
+            },
+            "detail": {
+                "title": "Question Answer Player"
+            },
+            "player": "Player",
+            "questionAnswer": "Question Answer"
+        }
+    }
+}

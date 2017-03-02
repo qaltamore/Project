@@ -1,0 +1,15 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170302091758",
+    "entityTableName": "building_type",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

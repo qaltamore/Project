@@ -1,0 +1,76 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myPersonnageLabel" data-translate="hack47App.personnage.home.createOrEditLabel">Create or edit a Personnage</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.personnage.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.personnage.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="hack47App.personnage.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.personnage.name"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="hack47App.personnage.type" for="field_type">Type</label>
+            <select class="form-control" name="type" ng-model="vm.personnage.type" id="field_type">
+                <option value="FOR" data-translate="hack47App.Type.FOR">FOR</option>
+                <option value="VIT" data-translate="hack47App.Type.VIT">VIT</option>
+                <option value="TEC" data-translate="hack47App.Type.TEC">TEC</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="hack47App.personnage.lifePoint" for="field_lifePoint">Life Point</label>
+            <input type="number" class="form-control" name="lifePoint" id="field_lifePoint"
+                    ng-model="vm.personnage.lifePoint"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="hack47App.personnage.movementPoint" for="field_movementPoint">Movement Point</label>
+            <input type="number" class="form-control" name="movementPoint" id="field_movementPoint"
+                    ng-model="vm.personnage.movementPoint"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="hack47App.personnage.attackPoint" for="field_attackPoint">Attack Point</label>
+            <input type="number" class="form-control" name="attackPoint" id="field_attackPoint"
+                    ng-model="vm.personnage.attackPoint"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="hack47App.personnage.defensePoint" for="field_defensePoint">Defense Point</label>
+            <input type="number" class="form-control" name="defensePoint" id="field_defensePoint"
+                    ng-model="vm.personnage.defensePoint"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="hack47App.personnage.magicPoint" for="field_magicPoint">Magic Point</label>
+            <input type="number" class="form-control" name="magicPoint" id="field_magicPoint"
+                    ng-model="vm.personnage.magicPoint"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="hack47App.personnage.inLive" for="field_inLive">In Live</label>
+            <input type="checkbox" class="form-control" name="inLive" id="field_inLive"
+                    ng-model="vm.personnage.inLive"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

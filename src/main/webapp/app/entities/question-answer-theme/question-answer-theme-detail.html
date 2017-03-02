@@ -1,0 +1,27 @@
+
+<div>
+    <h2><span data-translate="hack47App.questionAnswerTheme.detail.title">Question Answer Theme</span> {{vm.questionAnswerTheme.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="hack47App.questionAnswerTheme.theme">Theme</span></dt>
+        <dd>
+            <a ui-sref="theme-detail({id:vm.questionAnswerTheme.theme.id})">{{vm.questionAnswerTheme.theme.id}}</a>
+        </dd>
+        <dt><span data-translate="hack47App.questionAnswerTheme.questionAnswer">Question Answer</span></dt>
+        <dd>
+            <a ui-sref="question-answer-detail({id:vm.questionAnswerTheme.questionAnswer.id})">{{vm.questionAnswerTheme.questionAnswer.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="question-answer-theme-detail.edit({id:vm.questionAnswerTheme.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

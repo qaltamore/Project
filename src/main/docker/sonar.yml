@@ -1,0 +1,8 @@
+version: '2'
+services:
+    hack47-sonar:
+        container_name: hack47-sonar
+        image: sonarqube:6.1-alpine
+        ports:
+            - 9000:9000
+            - 9092:9092

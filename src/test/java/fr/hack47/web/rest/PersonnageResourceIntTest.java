@@ -1,0 +1,283 @@
+package fr.hack47.web.rest;
+
+import fr.hack47.Hack47App;
+
+import fr.hack47.domain.Personnage;
+import fr.hack47.repository.PersonnageRepository;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
+import org.springframework.http.MediaType;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.util.ReflectionTestUtils;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.Matchers.hasItem;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+import fr.hack47.domain.enumeration.Type;
+/**
+ * Test class for the PersonnageResource REST controller.
+ *
+ * @see PersonnageResource
+ */
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = Hack47App.class)
+public class PersonnageResourceIntTest {
+
+    private static final String DEFAULT_NAME = "AAAAAAAAAA";
+    private static final String UPDATED_NAME = "BBBBBBBBBB";
+
+    private static final Type DEFAULT_TYPE = Type.FOR;
+    private static final Type UPDATED_TYPE = Type.VIT;
+
+    private static final Integer DEFAULT_LIFE_POINT = 1;
+    private static final Integer UPDATED_LIFE_POINT = 2;
+
+    private static final Integer DEFAULT_MOVEMENT_POINT = 1;
+    private static final Integer UPDATED_MOVEMENT_POINT = 2;
+
+    private static final Integer DEFAULT_ATTACK_POINT = 1;
+    private static final Integer UPDATED_ATTACK_POINT = 2;
+
+    private static final Integer DEFAULT_DEFENSE_POINT = 1;
+    private static final Integer UPDATED_DEFENSE_POINT = 2;
+
+    private static final Integer DEFAULT_MAGIC_POINT = 1;
+    private static final Integer UPDATED_MAGIC_POINT = 2;
+
+    private static final Boolean DEFAULT_IN_LIVE = false;
+    private static final Boolean UPDATED_IN_LIVE = true;
+
+    @Inject
+    private PersonnageRepository personnageRepository;
+
+    @Inject
+    private MappingJackson2HttpMessageConverter jacksonMessageConverter;
+
+    @Inject
+    private PageableHandlerMethodArgumentResolver pageableArgumentResolver;
+
+    @Inject
+    private EntityManager em;
+
+    private MockMvc restPersonnageMockMvc;
+
+    private Personnage personnage;
+
+    @Before
+    public void setup() {
+        MockitoAnnotations.initMocks(this);
+        PersonnageResource personnageResource = new PersonnageResource();
+        ReflectionTestUtils.setField(personnageResource, "personnageRepository", personnageRepository);
+        this.restPersonnageMockMvc = MockMvcBuilders.standaloneSetup(personnageResource)
+            .setCustomArgumentResolvers(pageableArgumentResolver)
+            .setMessageConverters(jacksonMessageConverter).build();
+    }
+
+    /**
+     * Create an entity for this test.
+     *
+     * This is a static method, as tests for other entities might also need it,
+     * if they test an entity which requires the current entity.
+     */
+    public static Personnage createEntity(EntityManager em) {
+        Personnage personnage = new Personnage()
+                .name(DEFAULT_NAME)
+                .type(DEFAULT_TYPE)
+                .lifePoint(DEFAULT_LIFE_POINT)
+                .movementPoint(DEFAULT_MOVEMENT_POINT)
+                .attackPoint(DEFAULT_ATTACK_POINT)
+                .defensePoint(DEFAULT_DEFENSE_POINT)
+                .magicPoint(DEFAULT_MAGIC_POINT)
+                .inLive(DEFAULT_IN_LIVE);
+        return personnage;
+    }
+
+    @Before
+    public void initTest() {
+        personnage = createEntity(em);
+    }
+
+    @Test
+    @Transactional
+    public void createPersonnage() throws Exception {
+        int databaseSizeBeforeCreate = personnageRepository.findAll().size();
+
+        // Create the Personnage
+
+        restPersonnageMockMvc.perform(post("/api/personnages")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(personnage)))
+            .andExpect(status().isCreated());
+
+        // Validate the Personnage in the database
+        List<Personnage> personnageList = personnageRepository.findAll();
+        assertThat(personnageList).hasSize(databaseSizeBeforeCreate + 1);
+        Personnage testPersonnage = personnageList.get(personnageList.size() - 1);
+        assertThat(testPersonnage.getName()).isEqualTo(DEFAULT_NAME);
+        assertThat(testPersonnage.getType()).isEqualTo(DEFAULT_TYPE);
+        assertThat(testPersonnage.getLifePoint()).isEqualTo(DEFAULT_LIFE_POINT);
+        assertThat(testPersonnage.getMovementPoint()).isEqualTo(DEFAULT_MOVEMENT_POINT);
+        assertThat(testPersonnage.getAttackPoint()).isEqualTo(DEFAULT_ATTACK_POINT);
+        assertThat(testPersonnage.getDefensePoint()).isEqualTo(DEFAULT_DEFENSE_POINT);
+        assertThat(testPersonnage.getMagicPoint()).isEqualTo(DEFAULT_MAGIC_POINT);
+        assertThat(testPersonnage.isInLive()).isEqualTo(DEFAULT_IN_LIVE);
+    }
+
+    @Test
+    @Transactional
+    public void createPersonnageWithExistingId() throws Exception {
+        int databaseSizeBeforeCreate = personnageRepository.findAll().size();
+
+        // Create the Personnage with an existing ID
+        Personnage existingPersonnage = new Personnage();
+        existingPersonnage.setId(1L);
+
+        // An entity with an existing ID cannot be created, so this API call must fail
+        restPersonnageMockMvc.perform(post("/api/personnages")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(existingPersonnage)))
+            .andExpect(status().isBadRequest());
+
+        // Validate the Alice in the database
+        List<Personnage> personnageList = personnageRepository.findAll();
+        assertThat(personnageList).hasSize(databaseSizeBeforeCreate);
+    }
+
+    @Test
+    @Transactional
+    public void getAllPersonnages() throws Exception {
+        // Initialize the database
+        personnageRepository.saveAndFlush(personnage);
+
+        // Get all the personnageList
+        restPersonnageMockMvc.perform(get("/api/personnages?sort=id,desc"))
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+            .andExpect(jsonPath("$.[*].id").value(hasItem(personnage.getId().intValue())))
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
+            .andExpect(jsonPath("$.[*].type").value(hasItem(DEFAULT_TYPE.toString())))
+            .andExpect(jsonPath("$.[*].lifePoint").value(hasItem(DEFAULT_LIFE_POINT)))
+            .andExpect(jsonPath("$.[*].movementPoint").value(hasItem(DEFAULT_MOVEMENT_POINT)))
+            .andExpect(jsonPath("$.[*].attackPoint").value(hasItem(DEFAULT_ATTACK_POINT)))
+            .andExpect(jsonPath("$.[*].defensePoint").value(hasItem(DEFAULT_DEFENSE_POINT)))
+            .andExpect(jsonPath("$.[*].magicPoint").value(hasItem(DEFAULT_MAGIC_POINT)))
+            .andExpect(jsonPath("$.[*].inLive").value(hasItem(DEFAULT_IN_LIVE.booleanValue())));
+    }
+
+    @Test
+    @Transactional
+    public void getPersonnage() throws Exception {
+        // Initialize the database
+        personnageRepository.saveAndFlush(personnage);
+
+        // Get the personnage
+        restPersonnageMockMvc.perform(get("/api/personnages/{id}", personnage.getId()))
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+            .andExpect(jsonPath("$.id").value(personnage.getId().intValue()))
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
+            .andExpect(jsonPath("$.type").value(DEFAULT_TYPE.toString()))
+            .andExpect(jsonPath("$.lifePoint").value(DEFAULT_LIFE_POINT))
+            .andExpect(jsonPath("$.movementPoint").value(DEFAULT_MOVEMENT_POINT))
+            .andExpect(jsonPath("$.attackPoint").value(DEFAULT_ATTACK_POINT))
+            .andExpect(jsonPath("$.defensePoint").value(DEFAULT_DEFENSE_POINT))
+            .andExpect(jsonPath("$.magicPoint").value(DEFAULT_MAGIC_POINT))
+            .andExpect(jsonPath("$.inLive").value(DEFAULT_IN_LIVE.booleanValue()));
+    }
+
+    @Test
+    @Transactional
+    public void getNonExistingPersonnage() throws Exception {
+        // Get the personnage
+        restPersonnageMockMvc.perform(get("/api/personnages/{id}", Long.MAX_VALUE))
+            .andExpect(status().isNotFound());
+    }
+
+    @Test
+    @Transactional
+    public void updatePersonnage() throws Exception {
+        // Initialize the database
+        personnageRepository.saveAndFlush(personnage);
+        int databaseSizeBeforeUpdate = personnageRepository.findAll().size();
+
+        // Update the personnage
+        Personnage updatedPersonnage = personnageRepository.findOne(personnage.getId());
+        updatedPersonnage
+                .name(UPDATED_NAME)
+                .type(UPDATED_TYPE)
+                .lifePoint(UPDATED_LIFE_POINT)
+                .movementPoint(UPDATED_MOVEMENT_POINT)
+                .attackPoint(UPDATED_ATTACK_POINT)
+                .defensePoint(UPDATED_DEFENSE_POINT)
+                .magicPoint(UPDATED_MAGIC_POINT)
+                .inLive(UPDATED_IN_LIVE);
+
+        restPersonnageMockMvc.perform(put("/api/personnages")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(updatedPersonnage)))
+            .andExpect(status().isOk());
+
+        // Validate the Personnage in the database
+        List<Personnage> personnageList = personnageRepository.findAll();
+        assertThat(personnageList).hasSize(databaseSizeBeforeUpdate);
+        Personnage testPersonnage = personnageList.get(personnageList.size() - 1);
+        assertThat(testPersonnage.getName()).isEqualTo(UPDATED_NAME);
+        assertThat(testPersonnage.getType()).isEqualTo(UPDATED_TYPE);
+        assertThat(testPersonnage.getLifePoint()).isEqualTo(UPDATED_LIFE_POINT);
+        assertThat(testPersonnage.getMovementPoint()).isEqualTo(UPDATED_MOVEMENT_POINT);
+        assertThat(testPersonnage.getAttackPoint()).isEqualTo(UPDATED_ATTACK_POINT);
+        assertThat(testPersonnage.getDefensePoint()).isEqualTo(UPDATED_DEFENSE_POINT);
+        assertThat(testPersonnage.getMagicPoint()).isEqualTo(UPDATED_MAGIC_POINT);
+        assertThat(testPersonnage.isInLive()).isEqualTo(UPDATED_IN_LIVE);
+    }
+
+    @Test
+    @Transactional
+    public void updateNonExistingPersonnage() throws Exception {
+        int databaseSizeBeforeUpdate = personnageRepository.findAll().size();
+
+        // Create the Personnage
+
+        // If the entity doesn't have an ID, it will be created instead of just being updated
+        restPersonnageMockMvc.perform(put("/api/personnages")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(personnage)))
+            .andExpect(status().isCreated());
+
+        // Validate the Personnage in the database
+        List<Personnage> personnageList = personnageRepository.findAll();
+        assertThat(personnageList).hasSize(databaseSizeBeforeUpdate + 1);
+    }
+
+    @Test
+    @Transactional
+    public void deletePersonnage() throws Exception {
+        // Initialize the database
+        personnageRepository.saveAndFlush(personnage);
+        int databaseSizeBeforeDelete = personnageRepository.findAll().size();
+
+        // Get the personnage
+        restPersonnageMockMvc.perform(delete("/api/personnages/{id}", personnage.getId())
+            .accept(TestUtil.APPLICATION_JSON_UTF8))
+            .andExpect(status().isOk());
+
+        // Validate the database is empty
+        List<Personnage> personnageList = personnageRepository.findAll();
+        assertThat(personnageList).hasSize(databaseSizeBeforeDelete - 1);
+    }
+}

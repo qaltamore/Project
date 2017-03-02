@@ -1,0 +1,10 @@
+{
+    "hack47App": {
+        "Type" : {
+            "null": "",
+            "FOR": "FOR",
+            "VIT": "VIT",
+            "TEC": "TEC"
+        }
+    }
+}

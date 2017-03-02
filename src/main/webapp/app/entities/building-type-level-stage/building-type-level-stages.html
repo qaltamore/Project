@@ -1,0 +1,64 @@
+<div>
+    <h2 data-translate="hack47App.buildingTypeLevelStage.home.title">Building Type Level Stages</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="building-type-level-stage.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="hack47App.buildingTypeLevelStage.home.createLabel">
+                        Create new Building Type Level Stage
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="hack47App.buildingTypeLevelStage.buildingsQuantity">Buildings Quantity</span></th>
+                    <th><span data-translate="hack47App.buildingTypeLevelStage.levelStage">Level Stage</span></th>
+                    <th><span data-translate="hack47App.buildingTypeLevelStage.buildingType">Building Type</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="buildingTypeLevelStage in vm.buildingTypeLevelStages track by buildingTypeLevelStage.id">
+                    <td><a ui-sref="building-type-level-stage-detail({id:buildingTypeLevelStage.id})">{{buildingTypeLevelStage.id}}</a></td>
+                    <td>{{buildingTypeLevelStage.buildingsQuantity}}</td>
+                    <td>
+                        <a ui-sref="level-stage-detail({id:buildingTypeLevelStage.levelStage.id})">{{buildingTypeLevelStage.levelStage.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="building-type-detail({id:buildingTypeLevelStage.buildingType.id})">{{buildingTypeLevelStage.buildingType.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="building-type-level-stage-detail({id:buildingTypeLevelStage.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="building-type-level-stage.edit({id:buildingTypeLevelStage.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="building-type-level-stage.delete({id:buildingTypeLevelStage.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

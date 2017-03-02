@@ -1,0 +1,51 @@
+
+<div>
+    <h2><span data-translate="hack47App.personnage.detail.title">Personnage</span> {{vm.personnage.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="hack47App.personnage.name">Name</span></dt>
+        <dd>
+            <span>{{vm.personnage.name}}</span>
+        </dd>
+        <dt><span data-translate="hack47App.personnage.type">Type</span></dt>
+        <dd>
+            <span data-translate="{{'hack47App.Type.' + vm.personnage.type}}">{{vm.personnage.type}}</span>
+        </dd>
+        <dt><span data-translate="hack47App.personnage.lifePoint">Life Point</span></dt>
+        <dd>
+            <span>{{vm.personnage.lifePoint}}</span>
+        </dd>
+        <dt><span data-translate="hack47App.personnage.movementPoint">Movement Point</span></dt>
+        <dd>
+            <span>{{vm.personnage.movementPoint}}</span>
+        </dd>
+        <dt><span data-translate="hack47App.personnage.attackPoint">Attack Point</span></dt>
+        <dd>
+            <span>{{vm.personnage.attackPoint}}</span>
+        </dd>
+        <dt><span data-translate="hack47App.personnage.defensePoint">Defense Point</span></dt>
+        <dd>
+            <span>{{vm.personnage.defensePoint}}</span>
+        </dd>
+        <dt><span data-translate="hack47App.personnage.magicPoint">Magic Point</span></dt>
+        <dd>
+            <span>{{vm.personnage.magicPoint}}</span>
+        </dd>
+        <dt><span data-translate="hack47App.personnage.inLive">In Live</span></dt>
+        <dd>
+            <span>{{vm.personnage.inLive}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="personnage-detail.edit({id:vm.personnage.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

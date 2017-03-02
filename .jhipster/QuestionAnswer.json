@@ -1,0 +1,43 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "titre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "level",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "question",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "proposition1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "proposition2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "proposition3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "proposition4",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "answer",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170302091700",
+    "entityTableName": "question_answer",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

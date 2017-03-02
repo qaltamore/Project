@@ -1,0 +1,23 @@
+{
+    "hack47App": {
+        "personnagePlayer" : {
+            "home": {
+                "title": "PersonnagePlayers",
+                "createLabel": "Créer un nouveau Personnage Player",
+                "createOrEditLabel": "Créer ou éditer un Personnage Player",
+                "search": "Recherche pour Personnage Player"
+            },
+            "created": "Un nouveau Personnage Player a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Personnage Player avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Personnage Player avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Personnage Player {{ id }} ?"
+            },
+            "detail": {
+                "title": "Personnage Player"
+            },
+            "player": "Player",
+            "personnage": "Personnage"
+        }
+    }
+}

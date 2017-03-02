@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity PersonnageLevelStage.
+    -->
+    <changeSet id="20170302091755-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="personnage_id"
+                                 baseTableName="personnage_level_stage"
+                                 constraintName="fk_personnage_level_stage_personnage_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="personnage"/>
+
+        <addForeignKeyConstraint baseColumnNames="level_stage_id"
+                                 baseTableName="personnage_level_stage"
+                                 constraintName="fk_personnage_level_stage_level_stage_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="level_stage"/>
+
+    </changeSet>
+</databaseChangeLog>

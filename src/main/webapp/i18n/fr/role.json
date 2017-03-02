@@ -1,0 +1,9 @@
+{
+    "hack47App": {
+        "Role" : {
+            "null": "",
+            "ATK": "ATK",
+            "DEF": "DEF"
+        }
+    }
+}

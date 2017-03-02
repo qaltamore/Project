@@ -1,0 +1,23 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "player",
+            "otherEntityName": "player",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "questionAnswer",
+            "otherEntityName": "questionAnswer",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20170302091759",
+    "entityTableName": "question_answer_player",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

@@ -1,0 +1,23 @@
+{
+    "hack47App": {
+        "levelStage" : {
+            "home": {
+                "title": "LevelStages",
+                "createLabel": "Créer un nouveau Level Stage",
+                "createOrEditLabel": "Créer ou éditer un Level Stage",
+                "search": "Recherche pour Level Stage"
+            },
+            "created": "Un nouveau Level Stage a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Level Stage avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Level Stage avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Level Stage {{ id }} ?"
+            },
+            "detail": {
+                "title": "Level Stage"
+            },
+            "idLevelStage": "Id Level Stage",
+            "numero": "Numero"
+        }
+    }
+}
