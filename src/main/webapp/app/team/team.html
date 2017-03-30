@@ -1,22 +1,33 @@
 <div class="table-responsive">
-	<div ng-repeat="personnage in vm.personnages track by personnage.id" class="col-xs-6" class="rounded">
-		<div class="row">
-			<!-- <img src="" alt="Image personnage" class="col-xs-2" /> --><span class="col-xs-4">Image</span>
-			<span class="col-xs-4" ><strong>{{personnage.name}}</strong></span>
-			<span class="col-xs-4"><strong>{{personnage.type}}</strong></span>
-		</div>
-		<div class="row">
-			<span class="col-xs-4" ><strong>Vie :</strong> {{personnage.lifePoints}}</span>
-			<span class="col-xs-4" ><strong>Attaque :</strong> {{personnage.attackPoints}}</span>
-			<span class="col-xs-4" ><strong>Défense :</strong> {{personnage.defensePoints}}</span>
-		</div>
-		<div class="row">
-			<span class="col-xs-4" ><strong>Mouvement :</strong> {{personnage.movementPoints}}</span>
-			<span class="col-xs-4" ><strong>Magie :</strong> {{personnage.magicPoints}}</span>
-		</div>
-		<div class="row">
-			<strong class="col-xs-12">Capacité :</strong>
-			<p class="col-xs-12">{{personnage.capacity}}</p>
+	<p><button ui-sref="home">Retour</button></p>
+
+	<div ng-repeat="personnage in vm.personnages track by personnage.id" class="col-xs-6">
+		<div class="row well" style="height: 400px;">
+			<div class="row">
+				<center><span class="col-xs-4"></span><img src="content/images/{{personnage.name}}.png" alt="Image personnage" class="col-xs-4" /></center> <!-- <span class="col-xs-4"></span><span class="col-xs-4"><center>Image</center></span> -->
+			</div>
+			<br />
+			<div class="row">
+				<span class="col-xs-4"></span><span class="col-xs-4" ><strong><center>{{personnage.name}}</center></strong></span>
+			</div>
+			<div class="row">
+				<span class="col-xs-4"></span><span class="col-xs-4"><strong><center>{{personnage.type}}</center></strong></span>
+			</div>
+			<br />
+			<div class="row">
+				<span class="col-xs-4" ><strong>Vie :</strong> {{personnage.lifePoints}}</span>
+				<span class="col-xs-4" ><strong><center>Attaque :</strong> {{personnage.attackPoints}}</center></span>
+				<span class="col-xs-4"><span class="pull-right"><strong>Défense :</strong> {{personnage.defensePoints}}</span></span>
+			</div>
+			<div class="row">
+				<span class="col-xs-4" ><strong>Mouvement :</strong> {{personnage.movementPoints}}</span>
+				<span class="col-xs-4" ><strong><center>Magie :</strong> {{personnage.magicPoints}}</center></span>
+			</div>
+			<br />
+			<div class="row">
+				<strong class="col-xs-12">Capacité :</strong>
+				<p class="col-xs-12">{{personnage.capacity}}</p>
+			</div>
 		</div>
 	</div>
 </div>
