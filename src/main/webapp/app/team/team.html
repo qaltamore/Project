@@ -1,0 +1,22 @@
+<div class="table-responsive">
+	<div ng-repeat="personnage in vm.personnages track by personnage.id" class="col-xs-6" class="rounded">
+		<div class="row">
+			<!-- <img src="" alt="Image personnage" class="col-xs-2" /> --><span class="col-xs-4">Image</span>
+			<span class="col-xs-4" ><strong>{{personnage.name}}</strong></span>
+			<span class="col-xs-4"><strong>{{personnage.type}}</strong></span>
+		</div>
+		<div class="row">
+			<span class="col-xs-4" ><strong>Vie :</strong> {{personnage.lifePoints}}</span>
+			<span class="col-xs-4" ><strong>Attaque :</strong> {{personnage.attackPoints}}</span>
+			<span class="col-xs-4" ><strong>Défense :</strong> {{personnage.defensePoints}}</span>
+		</div>
+		<div class="row">
+			<span class="col-xs-4" ><strong>Mouvement :</strong> {{personnage.movementPoints}}</span>
+			<span class="col-xs-4" ><strong>Magie :</strong> {{personnage.magicPoints}}</span>
+		</div>
+		<div class="row">
+			<strong class="col-xs-12">Capacité :</strong>
+			<p class="col-xs-12">{{personnage.capacity}}</p>
+		</div>
+	</div>
+</div>
