@@ -2,9 +2,9 @@
 	<p><button ui-sref="home">Retour</button></p>
 
 	<div ng-repeat="personnage in vm.personnages track by personnage.id" class="col-xs-6">
-		<div class="row well" style="height: 400px;">
+		<div class="row well" style="height: 500px;">
 			<div class="row">
-				<center><span class="col-xs-4"></span><img src="content/images/{{personnage.name}}.png" alt="Image personnage" class="col-xs-4" /></center> <!-- <span class="col-xs-4"></span><span class="col-xs-4"><center>Image</center></span> -->
+				<center><span class="col-xs-4"></span><img src="content/images/{{personnage.name}}.png" alt="Image personnage" class="well col-xs-4" style="padding:0px;" /></center> <!-- <span class="col-xs-4"></span><span class="col-xs-4"><center>Image</center></span> -->
 			</div>
 			<br />
 			<div class="row">
