@@ -1,0 +1,28 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "personnage",
+            "otherEntityName": "personnage",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "levelStage",
+            "otherEntityName": "levelStage",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "personnagesQuantity",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20170330155727",
+    "entityTableName": "personnage_level_stage",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

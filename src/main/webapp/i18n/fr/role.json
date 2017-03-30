@@ -1,0 +1,9 @@
+{
+    "jHipsterAppliApp": {
+        "Role" : {
+            "null": "",
+            "ATK": "ATK",
+            "DEF": "DEF"
+        }
+    }
+}

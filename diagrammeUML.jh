@@ -1,0 +1,90 @@
+entity Player {
+	pseudo String,
+	role Role
+}
+
+enum Role {
+	ATK, DEF
+}
+
+entity PersonnagePlayer {
+}
+
+entity Personnage {
+	name String,
+	type Type,
+	lifePoints Integer,
+	movementPoints Integer,
+	attackPoints Integer,
+	defensePoints Integer,
+	magicPoints Integer,
+	capacity String,
+	inLive Boolean
+}
+
+enum Type {
+	FOR, VIT, TEC
+}
+
+entity PersonnageLevelStage {
+	personnagesQuantity Integer
+}
+
+entity LevelStage {
+	idLevelStage Integer,
+	numero Integer
+}
+
+entity BuildingTypeLevelStage {
+	buildingsQuantity Integer
+}
+
+entity BuildingType {
+	name String
+}
+
+entity QuestionAnswerPlayer {
+}
+
+entity QuestionAnswer {
+	titre String,
+    level Integer,
+    question String,
+    proposition1 String,
+    proposition2 String,
+    proposition3 String,
+    proposition4 String,
+    answer String
+}
+
+entity QuestionAnswerTheme {
+}
+
+entity Theme {
+	name String
+}
+
+relationship ManyToOne {
+	QuestionAnswerTheme{theme} to Theme,
+    QuestionAnswerTheme{questionAnswer} to QuestionAnswer
+}
+
+relationship ManyToOne {
+	QuestionAnswerPlayer{player} to Player,
+    QuestionAnswerPlayer{questionAnswer} to QuestionAnswer
+}
+
+relationship ManyToOne {
+	PersonnagePlayer{player} to Player,
+    PersonnagePlayer{personnage} to Personnage
+}
+
+relationship ManyToOne {
+	PersonnageLevelStage{personnage} to Personnage,
+    PersonnageLevelStage{levelStage} to LevelStage
+}
+
+relationship ManyToOne {
+	BuildingTypeLevelStage{levelStage} to LevelStage,
+    BuildingTypeLevelStage{buildingType} to BuildingType
+}

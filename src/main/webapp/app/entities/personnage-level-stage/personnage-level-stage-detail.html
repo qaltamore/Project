@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span data-translate="jHipsterAppliApp.personnageLevelStage.detail.title">Personnage Level Stage</span> {{vm.personnageLevelStage.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="jHipsterAppliApp.personnageLevelStage.personnagesQuantity">Personnages Quantity</span></dt>
+        <dd>
+            <span>{{vm.personnageLevelStage.personnagesQuantity}}</span>
+        </dd>
+        <dt><span data-translate="jHipsterAppliApp.personnageLevelStage.personnage">Personnage</span></dt>
+        <dd>
+            <a ui-sref="personnage-detail({id:vm.personnageLevelStage.personnage.id})">{{vm.personnageLevelStage.personnage.id}}</a>
+        </dd>
+        <dt><span data-translate="jHipsterAppliApp.personnageLevelStage.levelStage">Level Stage</span></dt>
+        <dd>
+            <a ui-sref="level-stage-detail({id:vm.personnageLevelStage.levelStage.id})">{{vm.personnageLevelStage.levelStage.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="personnage-level-stage-detail.edit({id:vm.personnageLevelStage.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

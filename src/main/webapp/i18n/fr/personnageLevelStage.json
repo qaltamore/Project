@@ -1,0 +1,24 @@
+{
+    "jHipsterAppliApp": {
+        "personnageLevelStage" : {
+            "home": {
+                "title": "PersonnageLevelStages",
+                "createLabel": "Créer un nouveau Personnage Level Stage",
+                "createOrEditLabel": "Créer ou éditer un Personnage Level Stage",
+                "search": "Recherche pour Personnage Level Stage"
+            },
+            "created": "Un nouveau Personnage Level Stage a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Personnage Level Stage avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Personnage Level Stage avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Personnage Level Stage {{ id }} ?"
+            },
+            "detail": {
+                "title": "Personnage Level Stage"
+            },
+            "personnagesQuantity": "Personnages Quantity",
+            "personnage": "Personnage",
+            "levelStage": "Level Stage"
+        }
+    }
+}

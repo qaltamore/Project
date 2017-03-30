@@ -1,0 +1,30 @@
+{
+    "jHipsterAppliApp": {
+        "personnage" : {
+            "home": {
+                "title": "Personnages",
+                "createLabel": "Créer un nouveau Personnage",
+                "createOrEditLabel": "Créer ou éditer un Personnage",
+                "search": "Recherche pour Personnage"
+            },
+            "created": "Un nouveau Personnage a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Personnage avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Personnage avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Personnage {{ id }} ?"
+            },
+            "detail": {
+                "title": "Personnage"
+            },
+            "name": "Name",
+            "type": "Type",
+            "lifePoints": "Life Points",
+            "movementPoints": "Movement Points",
+            "attackPoints": "Attack Points",
+            "defensePoints": "Defense Points",
+            "magicPoints": "Magic Points",
+            "capacity": "Capacity",
+            "inLive": "In Live"
+        }
+    }
+}

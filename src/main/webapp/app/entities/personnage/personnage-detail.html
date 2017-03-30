@@ -1,0 +1,55 @@
+
+<div>
+    <h2><span data-translate="jHipsterAppliApp.personnage.detail.title">Personnage</span> {{vm.personnage.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="jHipsterAppliApp.personnage.name">Name</span></dt>
+        <dd>
+            <span>{{vm.personnage.name}}</span>
+        </dd>
+        <dt><span data-translate="jHipsterAppliApp.personnage.type">Type</span></dt>
+        <dd>
+            <span data-translate="{{'jHipsterAppliApp.Type.' + vm.personnage.type}}">{{vm.personnage.type}}</span>
+        </dd>
+        <dt><span data-translate="jHipsterAppliApp.personnage.lifePoints">Life Points</span></dt>
+        <dd>
+            <span>{{vm.personnage.lifePoints}}</span>
+        </dd>
+        <dt><span data-translate="jHipsterAppliApp.personnage.movementPoints">Movement Points</span></dt>
+        <dd>
+            <span>{{vm.personnage.movementPoints}}</span>
+        </dd>
+        <dt><span data-translate="jHipsterAppliApp.personnage.attackPoints">Attack Points</span></dt>
+        <dd>
+            <span>{{vm.personnage.attackPoints}}</span>
+        </dd>
+        <dt><span data-translate="jHipsterAppliApp.personnage.defensePoints">Defense Points</span></dt>
+        <dd>
+            <span>{{vm.personnage.defensePoints}}</span>
+        </dd>
+        <dt><span data-translate="jHipsterAppliApp.personnage.magicPoints">Magic Points</span></dt>
+        <dd>
+            <span>{{vm.personnage.magicPoints}}</span>
+        </dd>
+        <dt><span data-translate="jHipsterAppliApp.personnage.capacity">Capacity</span></dt>
+        <dd>
+            <span>{{vm.personnage.capacity}}</span>
+        </dd>
+        <dt><span data-translate="jHipsterAppliApp.personnage.inLive">In Live</span></dt>
+        <dd>
+            <span>{{vm.personnage.inLive}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="personnage-detail.edit({id:vm.personnage.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

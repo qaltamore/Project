@@ -1,0 +1,22 @@
+{
+    "jHipsterAppliApp": {
+        "buildingType" : {
+            "home": {
+                "title": "BuildingTypes",
+                "createLabel": "Créer un nouveau Building Type",
+                "createOrEditLabel": "Créer ou éditer un Building Type",
+                "search": "Recherche pour Building Type"
+            },
+            "created": "Un nouveau Building Type a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Building Type avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Building Type avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Building Type {{ id }} ?"
+            },
+            "detail": {
+                "title": "Building Type"
+            },
+            "name": "Name"
+        }
+    }
+}

@@ -1,0 +1,74 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myQuestionAnswerLabel" data-translate="jHipsterAppliApp.questionAnswer.home.createOrEditLabel">Create or edit a Question Answer</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.questionAnswer.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.questionAnswer.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="jHipsterAppliApp.questionAnswer.titre" for="field_titre">Titre</label>
+            <input type="text" class="form-control" name="titre" id="field_titre"
+                    ng-model="vm.questionAnswer.titre"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="jHipsterAppliApp.questionAnswer.level" for="field_level">Level</label>
+            <input type="number" class="form-control" name="level" id="field_level"
+                    ng-model="vm.questionAnswer.level"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="jHipsterAppliApp.questionAnswer.question" for="field_question">Question</label>
+            <input type="text" class="form-control" name="question" id="field_question"
+                    ng-model="vm.questionAnswer.question"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="jHipsterAppliApp.questionAnswer.proposition1" for="field_proposition1">Proposition 1</label>
+            <input type="text" class="form-control" name="proposition1" id="field_proposition1"
+                    ng-model="vm.questionAnswer.proposition1"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="jHipsterAppliApp.questionAnswer.proposition2" for="field_proposition2">Proposition 2</label>
+            <input type="text" class="form-control" name="proposition2" id="field_proposition2"
+                    ng-model="vm.questionAnswer.proposition2"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="jHipsterAppliApp.questionAnswer.proposition3" for="field_proposition3">Proposition 3</label>
+            <input type="text" class="form-control" name="proposition3" id="field_proposition3"
+                    ng-model="vm.questionAnswer.proposition3"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="jHipsterAppliApp.questionAnswer.proposition4" for="field_proposition4">Proposition 4</label>
+            <input type="text" class="form-control" name="proposition4" id="field_proposition4"
+                    ng-model="vm.questionAnswer.proposition4"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="jHipsterAppliApp.questionAnswer.answer" for="field_answer">Answer</label>
+            <input type="text" class="form-control" name="answer" id="field_answer"
+                    ng-model="vm.questionAnswer.answer"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170330155724_added_entity_Player.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170330155725_added_entity_PersonnagePlayer.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170330155726_added_entity_Personnage.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170330155727_added_entity_PersonnageLevelStage.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170330155728_added_entity_LevelStage.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170330155729_added_entity_BuildingTypeLevelStage.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170330155730_added_entity_BuildingType.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170330155731_added_entity_QuestionAnswerPlayer.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170330155732_added_entity_QuestionAnswer.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170330155733_added_entity_QuestionAnswerTheme.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170330155734_added_entity_Theme.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="classpath:config/liquibase/changelog/20170330155725_added_entity_constraints_PersonnagePlayer.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170330155727_added_entity_constraints_PersonnageLevelStage.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170330155729_added_entity_constraints_BuildingTypeLevelStage.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170330155731_added_entity_constraints_QuestionAnswerPlayer.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170330155733_added_entity_constraints_QuestionAnswerTheme.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>

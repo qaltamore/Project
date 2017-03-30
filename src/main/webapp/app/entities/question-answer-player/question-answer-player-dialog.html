@@ -1,0 +1,38 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myQuestionAnswerPlayerLabel" data-translate="jHipsterAppliApp.questionAnswerPlayer.home.createOrEditLabel">Create or edit a Question Answer Player</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.questionAnswerPlayer.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.questionAnswerPlayer.id" readonly />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="jHipsterAppliApp.questionAnswerPlayer.player" for="field_player">Player</label>
+            <select class="form-control" id="field_player" name="player" ng-model="vm.questionAnswerPlayer.player" ng-options="player as player.id for player in vm.players track by player.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="jHipsterAppliApp.questionAnswerPlayer.questionAnswer" for="field_questionAnswer">Question Answer</label>
+            <select class="form-control" id="field_questionAnswer" name="questionAnswer" ng-model="vm.questionAnswerPlayer.questionAnswer" ng-options="questionAnswer as questionAnswer.id for questionAnswer in vm.questionanswers track by questionAnswer.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

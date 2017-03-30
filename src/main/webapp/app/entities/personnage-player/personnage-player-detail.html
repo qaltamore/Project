@@ -1,0 +1,27 @@
+
+<div>
+    <h2><span data-translate="jHipsterAppliApp.personnagePlayer.detail.title">Personnage Player</span> {{vm.personnagePlayer.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="jHipsterAppliApp.personnagePlayer.player">Player</span></dt>
+        <dd>
+            <a ui-sref="player-detail({id:vm.personnagePlayer.player.id})">{{vm.personnagePlayer.player.id}}</a>
+        </dd>
+        <dt><span data-translate="jHipsterAppliApp.personnagePlayer.personnage">Personnage</span></dt>
+        <dd>
+            <a ui-sref="personnage-detail({id:vm.personnagePlayer.personnage.id})">{{vm.personnagePlayer.personnage.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="personnage-player-detail.edit({id:vm.personnagePlayer.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

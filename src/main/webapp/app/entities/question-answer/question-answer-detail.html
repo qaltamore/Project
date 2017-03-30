@@ -1,0 +1,51 @@
+
+<div>
+    <h2><span data-translate="jHipsterAppliApp.questionAnswer.detail.title">Question Answer</span> {{vm.questionAnswer.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="jHipsterAppliApp.questionAnswer.titre">Titre</span></dt>
+        <dd>
+            <span>{{vm.questionAnswer.titre}}</span>
+        </dd>
+        <dt><span data-translate="jHipsterAppliApp.questionAnswer.level">Level</span></dt>
+        <dd>
+            <span>{{vm.questionAnswer.level}}</span>
+        </dd>
+        <dt><span data-translate="jHipsterAppliApp.questionAnswer.question">Question</span></dt>
+        <dd>
+            <span>{{vm.questionAnswer.question}}</span>
+        </dd>
+        <dt><span data-translate="jHipsterAppliApp.questionAnswer.proposition1">Proposition 1</span></dt>
+        <dd>
+            <span>{{vm.questionAnswer.proposition1}}</span>
+        </dd>
+        <dt><span data-translate="jHipsterAppliApp.questionAnswer.proposition2">Proposition 2</span></dt>
+        <dd>
+            <span>{{vm.questionAnswer.proposition2}}</span>
+        </dd>
+        <dt><span data-translate="jHipsterAppliApp.questionAnswer.proposition3">Proposition 3</span></dt>
+        <dd>
+            <span>{{vm.questionAnswer.proposition3}}</span>
+        </dd>
+        <dt><span data-translate="jHipsterAppliApp.questionAnswer.proposition4">Proposition 4</span></dt>
+        <dd>
+            <span>{{vm.questionAnswer.proposition4}}</span>
+        </dd>
+        <dt><span data-translate="jHipsterAppliApp.questionAnswer.answer">Answer</span></dt>
+        <dd>
+            <span>{{vm.questionAnswer.answer}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="question-answer-detail.edit({id:vm.questionAnswer.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

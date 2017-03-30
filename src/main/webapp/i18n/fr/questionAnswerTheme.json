@@ -1,0 +1,23 @@
+{
+    "jHipsterAppliApp": {
+        "questionAnswerTheme" : {
+            "home": {
+                "title": "QuestionAnswerThemes",
+                "createLabel": "Créer un nouveau Question Answer Theme",
+                "createOrEditLabel": "Créer ou éditer un Question Answer Theme",
+                "search": "Recherche pour Question Answer Theme"
+            },
+            "created": "Un nouveau Question Answer Theme a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Question Answer Theme avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Question Answer Theme avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Question Answer Theme {{ id }} ?"
+            },
+            "detail": {
+                "title": "Question Answer Theme"
+            },
+            "theme": "Theme",
+            "questionAnswer": "Question Answer"
+        }
+    }
+}

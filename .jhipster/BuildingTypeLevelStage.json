@@ -1,0 +1,28 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "levelStage",
+            "otherEntityName": "levelStage",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "buildingType",
+            "otherEntityName": "buildingType",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "buildingsQuantity",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20170330155729",
+    "entityTableName": "building_type_level_stage",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

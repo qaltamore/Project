@@ -1,0 +1,29 @@
+{
+    "jHipsterAppliApp": {
+        "questionAnswer" : {
+            "home": {
+                "title": "QuestionAnswers",
+                "createLabel": "Créer un nouveau Question Answer",
+                "createOrEditLabel": "Créer ou éditer un Question Answer",
+                "search": "Recherche pour Question Answer"
+            },
+            "created": "Un nouveau Question Answer a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Question Answer avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Question Answer avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Question Answer {{ id }} ?"
+            },
+            "detail": {
+                "title": "Question Answer"
+            },
+            "titre": "Titre",
+            "level": "Level",
+            "question": "Question",
+            "proposition1": "Proposition 1",
+            "proposition2": "Proposition 2",
+            "proposition3": "Proposition 3",
+            "proposition4": "Proposition 4",
+            "answer": "Answer"
+        }
+    }
+}

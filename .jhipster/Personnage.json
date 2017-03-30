@@ -1,0 +1,48 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "Type",
+            "fieldValues": "FOR,VIT,TEC"
+        },
+        {
+            "fieldName": "lifePoints",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "movementPoints",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "attackPoints",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "defensePoints",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "magicPoints",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "capacity",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "inLive",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20170330155726",
+    "entityTableName": "personnage",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

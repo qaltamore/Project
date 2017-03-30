@@ -1,0 +1,23 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "theme",
+            "otherEntityName": "theme",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "questionAnswer",
+            "otherEntityName": "questionAnswer",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20170330155733",
+    "entityTableName": "question_answer_theme",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

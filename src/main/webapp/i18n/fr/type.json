@@ -1,0 +1,10 @@
+{
+    "jHipsterAppliApp": {
+        "Type" : {
+            "null": "",
+            "FOR": "FOR",
+            "VIT": "VIT",
+            "TEC": "TEC"
+        }
+    }
+}
