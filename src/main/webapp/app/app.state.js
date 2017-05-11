@@ -15,6 +15,11 @@
                     templateUrl: 'app/layouts/navbar/navbar.html',
                     controller: 'NavbarController',
                     controllerAs: 'vm'
+                },
+                'sideMenu@': {
+                    templateUrl: 'app/layouts/sideMenu/sideMenu.html',
+                    controller: 'SideMenuController',
+                    controllerAs: 'vm'
                 }
             },
             resolve: {

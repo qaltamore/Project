@@ -7,6 +7,9 @@
                 "createOrEditLabel": "Créer ou éditer un Personnage",
                 "search": "Recherche pour Personnage"
             },
+            "game": {
+            	"title": "Jeu"
+			},
             "created": "Un nouveau Personnage a été créé avec l'identifiant {{ param }}",
             "updated": "Le Personnage avec l'identifiant {{ param }} a été mis à jour",
             "deleted": "Le Personnage avec l'identifiant {{ param }} a été supprimé",

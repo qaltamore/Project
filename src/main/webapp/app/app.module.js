@@ -3,6 +3,7 @@
 
     angular
         .module('jHipsterAppliApp', [
+        	'ngAnimate',
             'ngStorage',
             'tmh.dynamicLocale',
             'pascalprecht.translate',

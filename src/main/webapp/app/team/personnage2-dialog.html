@@ -1,0 +1,122 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+
+
+	<div class="row">
+		<center><span class="col-xs-4"></span><img src="content/images/{{vm.personnage.name}}.png" alt="Image personnage" class="well col-xs-4" style="padding:0px;" /></center> <!-- <span class="col-xs-4"></span><span class="col-xs-4"><center>Image</center></span> -->
+	</div>
+	<br />
+	<div class="row">
+		<span class="col-xs-4"></span><span class="col-xs-4" ><strong><center>{{vm.personnage.name}}</center></strong></span>
+	</div>
+	<div class="row">
+		<span class="col-xs-4"></span><span class="col-xs-4"><strong><center>{{vm.personnage.type}}</center></strong></span>
+	</div>
+	<br />
+	<div class="row">
+		<span class="col-xs-4" ><strong>Vie :</strong> {{vm.personnage.lifePoints}}</span>
+		<span class="col-xs-4" ><strong><center>Attaque :</strong> {{vm.personnage.attackPoints}}</center></span>
+		<span class="col-xs-4"><span class="pull-right"><strong>Défense :</strong> {{vm.personnage.defensePoints}}</span></span>
+	</div>
+	<div class="row">
+		<span class="col-xs-4" ><strong>Mouvement :</strong> {{vm.personnage.movementPoints}}</span>
+		<span class="col-xs-4" ><strong><center>Magie :</strong> 
+		<input type="number" class="form-control" name="magicPoints" id="field_magicPoints"
+                  ng-model="vm.personnage.magicPoints"
+                   />
+		</center></span>
+	</div>
+	<br />
+	<div class="row">
+		<strong class="col-xs-12">Capacité :</strong>
+		<p class="col-xs-12">{{vm.personnage.capacity}}</p>
+	</div>
+	<div class="row">
+		<button type="submit"
+                      ui-sref="personnage.edit({id:personnage.id})"
+                      class="btn btn-primary btn-sm">
+                  <span class="glyphicon glyphicon-pencil"></span>
+                  <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+              </button>
+	</div>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myPersonnageLabel" data-translate="jHipsterAppliApp.personnage.home.createOrEditLabel">Create or edit a Personnage</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.personnage.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.personnage.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="jHipsterAppliApp.personnage.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.personnage.name"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="jHipsterAppliApp.personnage.type" for="field_type">Type</label>
+            <select class="form-control" name="type" ng-model="vm.personnage.type" id="field_type">
+                <option value="FOR" data-translate="jHipsterAppliApp.Type.FOR">FOR</option>
+                <option value="VIT" data-translate="jHipsterAppliApp.Type.VIT">VIT</option>
+                <option value="TEC" data-translate="jHipsterAppliApp.Type.TEC">TEC</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="jHipsterAppliApp.personnage.lifePoints" for="field_lifePoints">Life Points</label>
+            <input type="number" class="form-control" name="lifePoints" id="field_lifePoints"
+                    ng-model="vm.personnage.lifePoints"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="jHipsterAppliApp.personnage.movementPoints" for="field_movementPoints">Movement Points</label>
+            <input type="number" class="form-control" name="movementPoints" id="field_movementPoints"
+                    ng-model="vm.personnage.movementPoints"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="jHipsterAppliApp.personnage.attackPoints" for="field_attackPoints">Attack Points</label>
+            <input type="number" class="form-control" name="attackPoints" id="field_attackPoints"
+                    ng-model="vm.personnage.attackPoints"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="jHipsterAppliApp.personnage.defensePoints" for="field_defensePoints">Defense Points</label>
+            <input type="number" class="form-control" name="defensePoints" id="field_defensePoints"
+                    ng-model="vm.personnage.defensePoints"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="jHipsterAppliApp.personnage.magicPoints" for="field_magicPoints">Magic Points</label>
+            <input type="number" class="form-control" name="magicPoints" id="field_magicPoints"
+                    ng-model="vm.personnage.magicPoints"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="jHipsterAppliApp.personnage.capacity" for="field_capacity">Capacity</label>
+            <input type="text" class="form-control" name="capacity" id="field_capacity"
+                    ng-model="vm.personnage.capacity"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="jHipsterAppliApp.personnage.inLive" for="field_inLive">In Live</label>
+            <input type="checkbox" class="form-control" name="inLive" id="field_inLive"
+                    ng-model="vm.personnage.inLive"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

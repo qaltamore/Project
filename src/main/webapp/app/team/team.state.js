@@ -30,6 +30,31 @@
                     return $translate.refresh();
                 }]
             }
+        })
+        .state('team.edit', {
+            parent: 'team',
+            url: '/{id}/edit2',
+            data: {
+                authorities: ['ROLE_USER']
+            },
+            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                $uibModal.open({
+                    templateUrl: 'app/team/personnage2-dialog.html',
+                    controller: 'Personnage2DialogController',
+                    controllerAs: 'vm',
+                    backdrop: 'static',
+                    size: 'lg',
+                    resolve: {
+                        entity: ['Personnage', function(Personnage) {
+                            return Personnage.get({id : $stateParams.id}).$promise;
+                        }]
+                    }
+                }).result.then(function() {
+                    $state.go('team', null, { reload : 'team'});
+                }, function() {
+                    $state.go('^');
+                });
+            }]
         });
     }
 
