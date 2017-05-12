@@ -69,6 +69,35 @@
                     ng-model="vm.personnage.inLive"
                      />
         </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setImg($file, vm.personnage)" ngf-pattern="'image/*'">
+            <label class="control-label" data-translate="jHipsterAppliApp.personnage.img" for="field_img">Img</label>
+            <div>
+                <img data-ng-src="{{'data:' + vm.personnage.imgContentType + ';base64,' + vm.personnage.img}}" style="max-height: 100px;" ng-if="vm.personnage.img" alt="personnage image"/>
+                <div ng-if="vm.personnage.img" class="help-block clearfix">
+                    <span class="pull-left">{{vm.personnage.imgContentType}}, {{vm.byteSize(vm.personnage.img)}}</span>
+                    <button type="button" ng-click="vm.personnage.img=null;vm.personnage.imgContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setImg($file, vm.personnage)" accept="image/*" data-translate="entity.action.addimage">
+                    Add image
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="img" id="field_img"
+                    ng-model="vm.personnage.img"
+                     />
+            <input type="hidden" class="form-control" name="imgContentType" id="field_imgContentType"
+                    ng-model="vm.personnage.imgContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="jHipsterAppliApp.personnage.playingBy" for="field_playingBy">Playing By</label>
+            <select class="form-control" name="playingBy" ng-model="vm.personnage.playingBy" id="field_playingBy">
+                <option value="ATK" data-translate="jHipsterAppliApp.Role.ATK">ATK</option>
+                <option value="DEF" data-translate="jHipsterAppliApp.Role.DEF">DEF</option>
+            </select>
+        </div>
 
     </div>
     <div class="modal-footer">

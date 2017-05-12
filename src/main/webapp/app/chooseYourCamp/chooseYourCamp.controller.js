@@ -21,6 +21,7 @@
         vm.chooseAttaquant = function() {
         	GameService.game.role = "atk";
         	GameService.game.roleTxt = "Attaquant";
+        	console.log(GameService.game.role);
         	$state.go('game');
         };
         vm.chooseDefenseur = function() {

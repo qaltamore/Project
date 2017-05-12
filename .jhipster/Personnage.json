@@ -38,11 +38,21 @@
         {
             "fieldName": "inLive",
             "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "img",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "playingBy",
+            "fieldType": "Role",
+            "fieldValues": "ATK,DEF"
         }
     ],
     "changelogDate": "20170330155726",
-    "entityTableName": "personnage",
     "dto": "no",
-    "pagination": "no",
-    "service": "no"
+    "service": "no",
+    "entityTableName": "personnage",
+    "pagination": "no"
 }

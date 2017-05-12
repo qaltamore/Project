@@ -4135,7 +4135,7 @@ angular.module('ngAnimate', [], function initAngularHelpers() {
   isDefined   = angular.isDefined;
   isFunction  = angular.isFunction;
   isElement   = angular.isElement;
-})
+})/*
   .info({ angularVersion: '1.6.4' })
   .directive('ngAnimateSwap', ngAnimateSwapDirective)
 
@@ -4149,7 +4149,7 @@ angular.module('ngAnimate', [], function initAngularHelpers() {
   .provider('$$animateCssDriver', $$AnimateCssDriverProvider)
 
   .provider('$$animateJs', $$AnimateJsProvider)
-  .provider('$$animateJsDriver', $$AnimateJsDriverProvider);
+  .provider('$$animateJsDriver', $$AnimateJsDriverProvider);*/
 
 
 })(window, window.angular);

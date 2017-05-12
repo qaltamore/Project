@@ -3,14 +3,14 @@
 
     angular
         .module('jHipsterAppliApp')
-        .controller('PersonnageDialogController', PersonnageDialogController);
+        .controller('OwnerDialogController', OwnerDialogController);
 
-    PersonnageDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'DataUtils', 'entity', 'Personnage'];
+    OwnerDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'DataUtils', 'entity', 'Owner'];
 
-    function PersonnageDialogController ($timeout, $scope, $stateParams, $uibModalInstance, DataUtils, entity, Personnage) {
+    function OwnerDialogController ($timeout, $scope, $stateParams, $uibModalInstance, DataUtils, entity, Owner) {
         var vm = this;
 
-        vm.personnage = entity;
+        vm.owner = entity;
         vm.clear = clear;
         vm.byteSize = DataUtils.byteSize;
         vm.openFile = DataUtils.openFile;
@@ -26,15 +26,15 @@
 
         function save () {
             vm.isSaving = true;
-            if (vm.personnage.id !== null) {
-                Personnage.update(vm.personnage, onSaveSuccess, onSaveError);
+            if (vm.owner.id !== null) {
+                Owner.update(vm.owner, onSaveSuccess, onSaveError);
             } else {
-                Personnage.save(vm.personnage, onSaveSuccess, onSaveError);
+                Owner.save(vm.owner, onSaveSuccess, onSaveError);
             }
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('jHipsterAppliApp:personnageUpdate', result);
+            $scope.$emit('jHipsterAppliApp:ownerUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }
@@ -44,15 +44,15 @@
         }
 
 
-        vm.setImg = function ($file, personnage) {
+        vm.setImg = function ($file, owner) {
             if ($file && $file.$error === 'pattern') {
                 return;
             }
             if ($file) {
                 DataUtils.toBase64($file, function(base64Data) {
                     $scope.$apply(function() {
-                        personnage.img = base64Data;
-                        personnage.imgContentType = $file.type;
+                        owner.img = base64Data;
+                        owner.imgContentType = $file.type;
                     });
                 });
             }

@@ -18,6 +18,7 @@ import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Base64Utils;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -29,6 +30,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import fr.projet.domain.enumeration.Type;
+import fr.projet.domain.enumeration.Role;
 /**
  * Test class for the PersonnageResource REST controller.
  *
@@ -64,6 +66,14 @@ public class PersonnageResourceIntTest {
 
     private static final Boolean DEFAULT_IN_LIVE = false;
     private static final Boolean UPDATED_IN_LIVE = true;
+
+    private static final byte[] DEFAULT_IMG = TestUtil.createByteArray(1, "0");
+    private static final byte[] UPDATED_IMG = TestUtil.createByteArray(2, "1");
+    private static final String DEFAULT_IMG_CONTENT_TYPE = "image/jpg";
+    private static final String UPDATED_IMG_CONTENT_TYPE = "image/png";
+
+    private static final Role DEFAULT_PLAYING_BY = Role.ATK;
+    private static final Role UPDATED_PLAYING_BY = Role.DEF;
 
     @Inject
     private PersonnageRepository personnageRepository;
@@ -107,7 +117,10 @@ public class PersonnageResourceIntTest {
                 .defensePoints(DEFAULT_DEFENSE_POINTS)
                 .magicPoints(DEFAULT_MAGIC_POINTS)
                 .capacity(DEFAULT_CAPACITY)
-                .inLive(DEFAULT_IN_LIVE);
+                .inLive(DEFAULT_IN_LIVE)
+                .img(DEFAULT_IMG)
+                .imgContentType(DEFAULT_IMG_CONTENT_TYPE)
+                .playingBy(DEFAULT_PLAYING_BY);
         return personnage;
     }
 
@@ -141,6 +154,9 @@ public class PersonnageResourceIntTest {
         assertThat(testPersonnage.getMagicPoints()).isEqualTo(DEFAULT_MAGIC_POINTS);
         assertThat(testPersonnage.getCapacity()).isEqualTo(DEFAULT_CAPACITY);
         assertThat(testPersonnage.isInLive()).isEqualTo(DEFAULT_IN_LIVE);
+        assertThat(testPersonnage.getImg()).isEqualTo(DEFAULT_IMG);
+        assertThat(testPersonnage.getImgContentType()).isEqualTo(DEFAULT_IMG_CONTENT_TYPE);
+        assertThat(testPersonnage.getPlayingBy()).isEqualTo(DEFAULT_PLAYING_BY);
     }
 
     @Test
@@ -182,7 +198,10 @@ public class PersonnageResourceIntTest {
             .andExpect(jsonPath("$.[*].defensePoints").value(hasItem(DEFAULT_DEFENSE_POINTS)))
             .andExpect(jsonPath("$.[*].magicPoints").value(hasItem(DEFAULT_MAGIC_POINTS)))
             .andExpect(jsonPath("$.[*].capacity").value(hasItem(DEFAULT_CAPACITY.toString())))
-            .andExpect(jsonPath("$.[*].inLive").value(hasItem(DEFAULT_IN_LIVE.booleanValue())));
+            .andExpect(jsonPath("$.[*].inLive").value(hasItem(DEFAULT_IN_LIVE.booleanValue())))
+            .andExpect(jsonPath("$.[*].imgContentType").value(hasItem(DEFAULT_IMG_CONTENT_TYPE)))
+            .andExpect(jsonPath("$.[*].img").value(hasItem(Base64Utils.encodeToString(DEFAULT_IMG))))
+            .andExpect(jsonPath("$.[*].playingBy").value(hasItem(DEFAULT_PLAYING_BY.toString())));
     }
 
     @Test
@@ -204,7 +223,10 @@ public class PersonnageResourceIntTest {
             .andExpect(jsonPath("$.defensePoints").value(DEFAULT_DEFENSE_POINTS))
             .andExpect(jsonPath("$.magicPoints").value(DEFAULT_MAGIC_POINTS))
             .andExpect(jsonPath("$.capacity").value(DEFAULT_CAPACITY.toString()))
-            .andExpect(jsonPath("$.inLive").value(DEFAULT_IN_LIVE.booleanValue()));
+            .andExpect(jsonPath("$.inLive").value(DEFAULT_IN_LIVE.booleanValue()))
+            .andExpect(jsonPath("$.imgContentType").value(DEFAULT_IMG_CONTENT_TYPE))
+            .andExpect(jsonPath("$.img").value(Base64Utils.encodeToString(DEFAULT_IMG)))
+            .andExpect(jsonPath("$.playingBy").value(DEFAULT_PLAYING_BY.toString()));
     }
 
     @Test
@@ -233,7 +255,10 @@ public class PersonnageResourceIntTest {
                 .defensePoints(UPDATED_DEFENSE_POINTS)
                 .magicPoints(UPDATED_MAGIC_POINTS)
                 .capacity(UPDATED_CAPACITY)
-                .inLive(UPDATED_IN_LIVE);
+                .inLive(UPDATED_IN_LIVE)
+                .img(UPDATED_IMG)
+                .imgContentType(UPDATED_IMG_CONTENT_TYPE)
+                .playingBy(UPDATED_PLAYING_BY);
 
         restPersonnageMockMvc.perform(put("/api/personnages")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -253,6 +278,9 @@ public class PersonnageResourceIntTest {
         assertThat(testPersonnage.getMagicPoints()).isEqualTo(UPDATED_MAGIC_POINTS);
         assertThat(testPersonnage.getCapacity()).isEqualTo(UPDATED_CAPACITY);
         assertThat(testPersonnage.isInLive()).isEqualTo(UPDATED_IN_LIVE);
+        assertThat(testPersonnage.getImg()).isEqualTo(UPDATED_IMG);
+        assertThat(testPersonnage.getImgContentType()).isEqualTo(UPDATED_IMG_CONTENT_TYPE);
+        assertThat(testPersonnage.getPlayingBy()).isEqualTo(UPDATED_PLAYING_BY);
     }
 
     @Test

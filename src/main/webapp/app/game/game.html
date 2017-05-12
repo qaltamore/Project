@@ -1,6 +1,14 @@
-<p>Rôle : {{vm.game.roleTxt}}</p>
-<div class="row">
-	<div class="col-xs-3">Image 1</div>
-	<div class="col-xs-8"></div>
-	<div class="col-xs-3">Image 2</div>
+<div>
+	<div class="row" style="width:100%;">
+		<div style="border:display:inline;" ng-repeat="personnage in vm.personnages track by personnage.id">
+			<div class="col-xs-2">
+				<img src="content/images/{{personnage.name}}.png" alt="Image personnage"/>
+			 </div>
+		</div>
+		<span class="col-xs-2 divRole"><center>{{vm.game.roleTxt}}</center></span>
+	</div>
+	<br/><br/>
+	<div class="row" style="width:100%;">
+		<p>Yo</p>
+	</div>
 </div>

@@ -9,57 +9,53 @@
 
     function stateConfig($stateProvider) {
         $stateProvider
-        .state('personnage', {
+        .state('owner', {
             parent: 'entity',
-            url: '/personnage',
+            url: '/owner',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'jHipsterAppliApp.personnage.home.title'
+                pageTitle: 'jHipsterAppliApp.owner.home.title'
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/personnage/personnages.html',
-                    controller: 'PersonnageController',
+                    templateUrl: 'app/entities/owner/owners.html',
+                    controller: 'OwnerController',
                     controllerAs: 'vm'
                 }
             },
             resolve: {
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('personnage');
-                    $translatePartialLoader.addPart('type');
-                    $translatePartialLoader.addPart('role');
+                    $translatePartialLoader.addPart('owner');
                     $translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]
             }
         })
-        .state('personnage-detail', {
+        .state('owner-detail', {
             parent: 'entity',
-            url: '/personnage/{id}',
+            url: '/owner/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'jHipsterAppliApp.personnage.detail.title'
+                pageTitle: 'jHipsterAppliApp.owner.detail.title'
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/personnage/personnage-detail.html',
-                    controller: 'PersonnageDetailController',
+                    templateUrl: 'app/entities/owner/owner-detail.html',
+                    controller: 'OwnerDetailController',
                     controllerAs: 'vm'
                 }
             },
             resolve: {
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('personnage');
-                    $translatePartialLoader.addPart('type');
-                    $translatePartialLoader.addPart('role');
+                    $translatePartialLoader.addPart('owner');
                     return $translate.refresh();
                 }],
-                entity: ['$stateParams', 'Personnage', function($stateParams, Personnage) {
-                    return Personnage.get({id : $stateParams.id}).$promise;
+                entity: ['$stateParams', 'Owner', function($stateParams, Owner) {
+                    return Owner.get({id : $stateParams.id}).$promise;
                 }],
                 previousState: ["$state", function ($state) {
                     var currentStateData = {
-                        name: $state.current.name || 'personnage',
+                        name: $state.current.name || 'owner',
                         params: $state.params,
                         url: $state.href($state.current.name, $state.params)
                     };
@@ -67,22 +63,22 @@
                 }]
             }
         })
-        .state('personnage-detail.edit', {
-            parent: 'personnage-detail',
+        .state('owner-detail.edit', {
+            parent: 'owner-detail',
             url: '/detail/edit',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/personnage/personnage-dialog.html',
-                    controller: 'PersonnageDialogController',
+                    templateUrl: 'app/entities/owner/owner-dialog.html',
+                    controller: 'OwnerDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
                     resolve: {
-                        entity: ['Personnage', function(Personnage) {
-                            return Personnage.get({id : $stateParams.id}).$promise;
+                        entity: ['Owner', function(Owner) {
+                            return Owner.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {
@@ -92,89 +88,79 @@
                 });
             }]
         })
-        .state('personnage.new', {
-            parent: 'personnage',
+        .state('owner.new', {
+            parent: 'owner',
             url: '/new',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/personnage/personnage-dialog.html',
-                    controller: 'PersonnageDialogController',
+                    templateUrl: 'app/entities/owner/owner-dialog.html',
+                    controller: 'OwnerDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
                     resolve: {
                         entity: function () {
                             return {
-                                name: null,
-                                type: null,
-                                lifePoints: null,
-                                movementPoints: null,
-                                attackPoints: null,
-                                defensePoints: null,
-                                magicPoints: null,
-                                capacity: null,
-                                inLive: null,
                                 img: null,
                                 imgContentType: null,
-                                playingBy: null,
                                 id: null
                             };
                         }
                     }
                 }).result.then(function() {
-                    $state.go('personnage', null, { reload: 'personnage' });
+                    $state.go('owner', null, { reload: 'owner' });
                 }, function() {
-                    $state.go('personnage');
+                    $state.go('owner');
                 });
             }]
         })
-        .state('personnage.edit', {
-            parent: 'personnage',
+        .state('owner.edit', {
+            parent: 'owner',
             url: '/{id}/edit',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/personnage/personnage-dialog.html',
-                    controller: 'PersonnageDialogController',
+                    templateUrl: 'app/entities/owner/owner-dialog.html',
+                    controller: 'OwnerDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
                     resolve: {
-                        entity: ['Personnage', function(Personnage) {
-                            return Personnage.get({id : $stateParams.id}).$promise;
+                        entity: ['Owner', function(Owner) {
+                            return Owner.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {
-                    $state.go('personnage', null, { reload: 'personnage' });
+                    $state.go('owner', null, { reload: 'owner' });
                 }, function() {
                     $state.go('^');
                 });
             }]
         })
-        .state('personnage.delete', {
-            parent: 'personnage',
+        .state('owner.delete', {
+            parent: 'owner',
             url: '/{id}/delete',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/personnage/personnage-delete-dialog.html',
-                    controller: 'PersonnageDeleteController',
+                    templateUrl: 'app/entities/owner/owner-delete-dialog.html',
+                    controller: 'OwnerDeleteController',
                     controllerAs: 'vm',
                     size: 'md',
                     resolve: {
-                        entity: ['Personnage', function(Personnage) {
-                            return Personnage.get({id : $stateParams.id}).$promise;
+                        entity: ['Owner', function(Owner) {
+                            return Owner.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {
-                    $state.go('personnage', null, { reload: 'personnage' });
+                    $state.go('owner', null, { reload: 'owner' });
                 }, function() {
                     $state.go('^');
                 });

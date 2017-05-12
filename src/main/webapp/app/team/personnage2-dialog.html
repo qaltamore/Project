@@ -1,10 +1,10 @@
 
-<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" style="padding:50px;">
 
 
 
 	<div class="row">
-		<center><span class="col-xs-4"></span><img src="content/images/{{vm.personnage.name}}.png" alt="Image personnage" class="well col-xs-4" style="padding:0px;" /></center> <!-- <span class="col-xs-4"></span><span class="col-xs-4"><center>Image</center></span> -->
+		<center><span class="col-xs-4"></span><img src="content/images/{{vm.personnage.name}}.png" alt="Image personnage" class="col-xs-4" /></center> <!-- <span class="col-xs-4"></span><span class="col-xs-4"><center>Image</center></span> -->
 	</div>
 	<br />
 	<div class="row">
@@ -48,11 +48,11 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group" ng-show="vm.personnage.id">
+        <!-- <div class="form-group" ng-show="vm.personnage.id">
             <label for="id" data-translate="global.field.id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
                     ng-model="vm.personnage.id" readonly />
-        </div>
+        </div> -->
         <div class="form-group">
             <label class="control-label" data-translate="jHipsterAppliApp.personnage.name" for="field_name">Name</label>
             <input type="text" class="form-control" name="name" id="field_name"

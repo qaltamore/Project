@@ -6,8 +6,7 @@
     <title>JHipsterAppli</title>
     <meta name="description" content="">
     <meta name="google" value="notranslate">
-    <meta name="viewport" content="width=device-width">
-    <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css content/css/vendor.css -->
     <!-- bower:css -->
@@ -32,7 +31,7 @@
     <div ui-view="sideMenu" ng-cloak class="sideMenu"></div>
     <!-- <div class="container"> -->
         <!-- main -->
-    <div class="well"-ui-view="content">
+    <div class="well" ui-view="content">
             <!-- Angular views -->
         </div>
 
@@ -160,6 +159,12 @@
     <script src="app/entities/personnage/personnage.state.js"></script>
     <script src="app/entities/personnage/personnage.service.js"></script>
     <script src="app/entities/personnage/personnage.controller.js"></script>
+    <script src="app/entities/owner/owner-dialog.controller.js"></script>
+    <script src="app/entities/owner/owner-detail.controller.js"></script>
+    <script src="app/entities/owner/owner-delete-dialog.controller.js"></script>
+    <script src="app/entities/owner/owner.state.js"></script>
+    <script src="app/entities/owner/owner.service.js"></script>
+    <script src="app/entities/owner/owner.controller.js"></script>
     <script src="app/entities/level-stage/level-stage-dialog.controller.js"></script>
     <script src="app/entities/level-stage/level-stage-detail.controller.js"></script>
     <script src="app/entities/level-stage/level-stage-delete-dialog.controller.js"></script>

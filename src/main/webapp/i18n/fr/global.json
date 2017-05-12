@@ -18,6 +18,7 @@
                 "questionAnswer": "Question Answer",
                 "questionAnswerTheme": "Question Answer Theme",
                 "theme": "Theme",
+                "owner": "Owner",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

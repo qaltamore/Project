@@ -40,6 +40,19 @@
         <dd>
             <span>{{vm.personnage.inLive}}</span>
         </dd>
+        <dt><span data-translate="jHipsterAppliApp.personnage.img">Img</span></dt>
+        <dd>
+            <div ng-if="vm.personnage.img">
+                <a ng-click="vm.openFile(vm.personnage.imgContentType, vm.personnage.img)">
+                    <img data-ng-src="{{'data:' + vm.personnage.imgContentType + ';base64,' + vm.personnage.img}}" style="max-width: 100%;" alt="personnage image"/>
+                </a>
+                {{vm.personnage.imgContentType}}, {{vm.byteSize(vm.personnage.img)}}
+            </div>
+        </dd>
+        <dt><span data-translate="jHipsterAppliApp.personnage.playingBy">Playing By</span></dt>
+        <dd>
+            <span data-translate="{{'jHipsterAppliApp.Role.' + vm.personnage.playingBy}}">{{vm.personnage.playingBy}}</span>
+        </dd>
     </dl>
 
     <button type="submit"

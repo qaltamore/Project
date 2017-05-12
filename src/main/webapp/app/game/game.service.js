@@ -13,8 +13,8 @@
         var self = this;
 
         self.game = {
-        	role : "atk",
-        	roleTxt : "Attaquant"
+        	role : "",
+        	roleTxt : ""
         };
     }
 })();

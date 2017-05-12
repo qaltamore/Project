@@ -10069,6 +10069,21 @@ if ( !noGlobal ) {
 	window.jQuery = window.$ = jQuery;
 }
 
+$(function() {
+	if(window.matchMedia("(orientation:portrait").matches) {
+		$('head').append('<meta name="viewport" content="user-scalable=no" />');
+	} else {
+		$('head').append('<meta name="viewport" content="width=device-width, user-scalable=no" />');
+	}
+});
+
+$(window).on("orientationchange", function(){
+	if(window.matchMedia("(orientation:portrait").matches) {
+		$('head').append('<meta name="viewport" content="user-scalable=no" />');
+	} else {
+		$('head').append('<meta name="viewport" content="width=device-width, user-scalable=no" />');
+	}
+});
 
 return jQuery;
 } );
