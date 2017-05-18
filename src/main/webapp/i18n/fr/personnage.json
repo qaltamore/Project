@@ -24,9 +24,7 @@
             "defensePoints": "Defense Points",
             "magicPoints": "Magic Points",
             "capacity": "Capacity",
-            "inLive": "In Live",
-            "img": "Img",
-            "playingBy": "Playing By"
+            "inLive": "In Live"
         }
     }
 }

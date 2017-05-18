@@ -6,7 +6,7 @@
         .controller('Personnage2DialogController', Personnage2DialogController);
 
     Personnage2DialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Personnage'];
-console.log("loading personnage2DialogController");
+
     function Personnage2DialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Personnage) {
         var vm = this;
 

@@ -5,14 +5,12 @@
         .module('jHipsterAppliApp')
         .controller('PersonnageController', PersonnageController);
 
-    PersonnageController.$inject = ['$scope', '$state', 'DataUtils', 'Personnage'];
+    PersonnageController.$inject = ['$scope', '$state', 'Personnage'];
 
-    function PersonnageController ($scope, $state, DataUtils, Personnage) {
+    function PersonnageController ($scope, $state, Personnage) {
         var vm = this;
 
         vm.personnages = [];
-        vm.openFile = DataUtils.openFile;
-        vm.byteSize = DataUtils.byteSize;
 
         loadAll();
 

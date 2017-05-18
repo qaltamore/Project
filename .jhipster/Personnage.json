@@ -38,16 +38,6 @@
         {
             "fieldName": "inLive",
             "fieldType": "Boolean"
-        },
-        {
-            "fieldName": "img",
-            "fieldType": "byte[]",
-            "fieldTypeBlobContent": "image"
-        },
-        {
-            "fieldName": "playingBy",
-            "fieldType": "Role",
-            "fieldValues": "ATK,DEF"
         }
     ],
     "changelogDate": "20170330155726",

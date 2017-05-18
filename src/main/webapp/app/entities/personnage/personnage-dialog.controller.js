@@ -5,15 +5,13 @@
         .module('jHipsterAppliApp')
         .controller('PersonnageDialogController', PersonnageDialogController);
 
-    PersonnageDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'DataUtils', 'entity', 'Personnage'];
+    PersonnageDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Personnage'];
 
-    function PersonnageDialogController ($timeout, $scope, $stateParams, $uibModalInstance, DataUtils, entity, Personnage) {
+    function PersonnageDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Personnage) {
         var vm = this;
 
         vm.personnage = entity;
         vm.clear = clear;
-        vm.byteSize = DataUtils.byteSize;
-        vm.openFile = DataUtils.openFile;
         vm.save = save;
 
         $timeout(function (){
@@ -43,20 +41,6 @@
             vm.isSaving = false;
         }
 
-
-        vm.setImg = function ($file, personnage) {
-            if ($file && $file.$error === 'pattern') {
-                return;
-            }
-            if ($file) {
-                DataUtils.toBase64($file, function(base64Data) {
-                    $scope.$apply(function() {
-                        personnage.img = base64Data;
-                        personnage.imgContentType = $file.type;
-                    });
-                });
-            }
-        };
 
     }
 })();

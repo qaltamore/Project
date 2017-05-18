@@ -28,8 +28,6 @@
                     <th><span data-translate="jHipsterAppliApp.personnage.magicPoints">Magic Points</span></th>
                     <th><span data-translate="jHipsterAppliApp.personnage.capacity">Capacity</span></th>
                     <th><span data-translate="jHipsterAppliApp.personnage.inLive">In Live</span></th>
-                    <th><span data-translate="jHipsterAppliApp.personnage.img">Img</span></th>
-                    <th><span data-translate="jHipsterAppliApp.personnage.playingBy">Playing By</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -45,13 +43,6 @@
                     <td>{{personnage.magicPoints}}</td>
                     <td>{{personnage.capacity}}</td>
                     <td>{{personnage.inLive}}</td>
-                    <td>
-                        <a ng-if="personnage.img" ng-click="vm.openFile(personnage.imgContentType, personnage.img)">
-                            <img data-ng-src="{{'data:' + personnage.imgContentType + ';base64,' + personnage.img}}" style="max-height: 30px;" alt="personnage image"/>
-                        </a>
-                        <span ng-if="personnage.img">{{personnage.imgContentType}}, {{vm.byteSize(personnage.img)}}</span>
-                    </td>
-                    <td data-translate="{{'jHipsterAppliApp.Role.' + personnage.playingBy}}">{{personnage.playingBy}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

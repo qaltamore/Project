@@ -27,7 +27,6 @@
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('personnage');
                     $translatePartialLoader.addPart('type');
-                    $translatePartialLoader.addPart('role');
                     $translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]
@@ -51,7 +50,6 @@
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('personnage');
                     $translatePartialLoader.addPart('type');
-                    $translatePartialLoader.addPart('role');
                     return $translate.refresh();
                 }],
                 entity: ['$stateParams', 'Personnage', function($stateParams, Personnage) {
@@ -117,9 +115,6 @@
                                 magicPoints: null,
                                 capacity: null,
                                 inLive: null,
-                                img: null,
-                                imgContentType: null,
-                                playingBy: null,
                                 id: null
                             };
                         }

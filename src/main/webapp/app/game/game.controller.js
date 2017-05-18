@@ -25,7 +25,7 @@
             		GameService.game.role = "atk";
             		GameService.game.roleTxt = "Attaquant";
             	} else {
-            		var sliced = result.slice(4);
+            		var sliced = result.slice(4, -1);
             		vm.personnages = sliced;
             		GameService.game.role = "def";
             		GameService.game.roleTxt = "Défenseur";

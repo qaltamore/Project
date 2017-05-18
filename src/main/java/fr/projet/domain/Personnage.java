@@ -9,8 +9,6 @@ import java.util.Objects;
 
 import fr.projet.domain.enumeration.Type;
 
-import fr.projet.domain.enumeration.Role;
-
 /**
  * A Personnage.
  */
@@ -52,17 +50,6 @@ public class Personnage implements Serializable {
 
     @Column(name = "in_live")
     private Boolean inLive;
-
-    @Lob
-    @Column(name = "img")
-    private byte[] img;
-
-    @Column(name = "img_content_type")
-    private String imgContentType;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "playing_by")
-    private Role playingBy;
 
     public Long getId() {
         return id;
@@ -189,45 +176,6 @@ public class Personnage implements Serializable {
         this.inLive = inLive;
     }
 
-    public byte[] getImg() {
-        return img;
-    }
-
-    public Personnage img(byte[] img) {
-        this.img = img;
-        return this;
-    }
-
-    public void setImg(byte[] img) {
-        this.img = img;
-    }
-
-    public String getImgContentType() {
-        return imgContentType;
-    }
-
-    public Personnage imgContentType(String imgContentType) {
-        this.imgContentType = imgContentType;
-        return this;
-    }
-
-    public void setImgContentType(String imgContentType) {
-        this.imgContentType = imgContentType;
-    }
-
-    public Role getPlayingBy() {
-        return playingBy;
-    }
-
-    public Personnage playingBy(Role playingBy) {
-        this.playingBy = playingBy;
-        return this;
-    }
-
-    public void setPlayingBy(Role playingBy) {
-        this.playingBy = playingBy;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -261,9 +209,6 @@ public class Personnage implements Serializable {
             ", magicPoints='" + magicPoints + "'" +
             ", capacity='" + capacity + "'" +
             ", inLive='" + inLive + "'" +
-            ", img='" + img + "'" +
-            ", imgContentType='" + imgContentType + "'" +
-            ", playingBy='" + playingBy + "'" +
             '}';
     }
 }
