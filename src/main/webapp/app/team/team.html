@@ -1,35 +1,35 @@
 <div class="table-responsive" style="display:table-cell;">
 	<div style="border:1px black solid; display:table-cell;" ng-repeat="personnage in vm.personnages track by personnage.id" class="col-xs-6">
 		<a ui-sref="team.edit({id:personnage.id})" style="color:black;">
-		<div class="row well" style="height: 600px;margin:0px; width:100%">
-			<div class="row">
-				<center><span class="col-xs-4"></span><img src="content/images/{{personnage.name}}.png" alt="Image personnage" class="col-xs-4" style="padding:0px;" /></center> <!-- <span class="col-xs-4"></span><span class="col-xs-4"><center>Image</center></span> -->
+			<div class="row well" style="height: 600px;margin:0px; width:100%">
+				<div class="row">
+					<center><span class="col-xs-4"></span><img src="content/images/characters/{{personnage.name}}.png" alt="Image personnage" class="col-xs-4" style="padding:0px;" /></center> <!-- <span class="col-xs-4"></span><span class="col-xs-4"><center>Image</center></span> -->
+				</div>
+				<br />
+				<div class="row">
+					<span class="col-xs-4"></span>
+					<span class="col-xs-4" ><strong><center>{{personnage.name}}</center></strong></span>
+				</div>
+				<div class="row">
+					<span class="col-xs-4"></span>
+					<span class="col-xs-4"><strong><center>{{personnage.type}}</center></strong></span>
+				</div>
+				<br />
+				<div class="row">
+					<span class="col-xs-4" style="text-align:left;"><strong>Vie :</strong> {{personnage.lifePoints}}</span>
+					<span class="col-xs-4" ><strong><center>Atk :</strong> {{personnage.attackPoints}}</center></span>
+					<span class="col-xs-4"><span class="pull-right"><strong>Def :</strong> {{personnage.defensePoints}}</span></span>
+				</div>
+				<div class="row">
+					<span class="col-xs-4" ><strong>Mvt :</strong> {{personnage.movementPoints}}</span>
+					<span class="col-xs-4" ><strong><center>Mag :</strong> {{personnage.magicPoints}}</center></span>
+				</div>
+				<br />
+				<div class="row">
+					<strong class="col-xs-12">Capacité :</strong>
+					<p class="col-xs-12">{{personnage.capacity}}</p>
+				</div>
 			</div>
-			<br />
-			<div class="row">
-				<span class="col-xs-4"></span>
-				<span class="col-xs-4" ><strong><center>{{personnage.name}}</center></strong></span>
-			</div>
-			<div class="row">
-				<span class="col-xs-4"></span>
-				<span class="col-xs-4"><strong><center>{{personnage.type}}</center></strong></span>
-			</div>
-			<br />
-			<div class="row">
-				<span class="col-xs-4" style="text-align:left;"><strong>Vie :</strong> {{personnage.lifePoints}}</span>
-				<span class="col-xs-4" ><strong><center>Atk :</strong> {{personnage.attackPoints}}</center></span>
-				<span class="col-xs-4"><span class="pull-right"><strong>Def :</strong> {{personnage.defensePoints}}</span></span>
-			</div>
-			<div class="row">
-				<span class="col-xs-4" ><strong>Mvt :</strong> {{personnage.movementPoints}}</span>
-				<span class="col-xs-4" ><strong><center>Mag :</strong> {{personnage.magicPoints}}</center></span>
-			</div>
-			<br />
-			<div class="row">
-				<strong class="col-xs-12">Capacité :</strong>
-				<p class="col-xs-12">{{personnage.capacity}}</p>
-			</div>
-		</div>
 		</a>
 	</div>
 </div>

@@ -1,14 +1,31 @@
 <div>
 	<div class="row" style="width:100%;">
-		<div style="border:display:inline;" ng-repeat="personnage in vm.personnages track by personnage.id">
+		<div style="border:display:inline; width:70%;" ng-repeat="personnageAtk in vm.personnagesAttaquant track by personnageAtk.id">
 			<div class="col-xs-2">
-				<img src="content/images/{{personnage.name}}.png" alt="Image personnage"/>
+				<a ui-sref="game.edit({id:personnageAtk.id})" style="color:black;">
+					<img src="content/images/characters/{{personnageAtk.name}}.png" alt="Image {{personnageAtk.name}}"/>
+			 	</a>
 			 </div>
 		</div>
-		<span class="col-xs-2 divRole"><center>{{vm.game.roleTxt}}</center></span>
+		<button class="col-xs-3 divRole" ng-click="vm.changeRole()">{{vm.game.roleTxt}}</button>
 	</div>
+	<br /><br />
+	<div class="row" style="width:100%;">
+		<div style="border:display:inline; width:70%;" ng-repeat="personnageDef in vm.personnagesDefenseur track by personnageDef.id">
+			<div class="col-xs-2">
+				<a ui-sref="game.edit({id:personnageDef.id})" style="color:black;">
+					<img src="content/images/characters/{{personnageDef.name}}.png" alt="Image {{personnageDef.name}}"/>
+			 	</a>
+			 </div>
+		</div>
+	</div>
+	
 	<br/><br/>
 	<div class="row" style="width:100%;">
-		<p>Yo</p>
+		<div style="border:display:inline;" ng-repeat="card in vm.cards track by card.id">
+			<div class="col-xs-2">
+				{{card.titre}}
+			 </div>
+		</div>
 	</div>
 </div>

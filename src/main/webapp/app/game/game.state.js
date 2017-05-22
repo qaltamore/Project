@@ -30,6 +30,31 @@
 	                return $translate.refresh();
 	            }]
 	        }
+        })
+        .state('game.edit', {
+            parent: 'game',
+            url: '/{id}/editGame',
+            data: {
+                authorities: ['ROLE_USER']
+            },
+            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                $uibModal.open({
+                    templateUrl: 'app/game/personnageGame.html',
+                    controller: 'PersonnageGameController',
+                    controllerAs: 'vm',
+                    backdrop: 'static',
+                    size: 'lg',
+                    resolve: {
+                        entity: ['Personnage', function(Personnage) {
+                            return Personnage.get({id : $stateParams.id}).$promise;
+                        }]
+                    }
+                }).result.then(function() {
+                    $state.go('game', null, { reload : 'game'});
+                }, function() {
+                    $state.go('^');
+                });
+            }]
         });
     }
 })();

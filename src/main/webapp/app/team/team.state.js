@@ -33,7 +33,7 @@
         })
         .state('team.edit', {
             parent: 'team',
-            url: '/{id}/edit2',
+            url: '/{id}/editTeam',
             data: {
                 authorities: ['ROLE_USER']
             },

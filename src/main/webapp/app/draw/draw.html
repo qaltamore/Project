@@ -1,0 +1,24 @@
+<div class="table-responsive" style="display:table-cell;border:none">
+	<div style="display:table-cell;" ng-repeat="theme in vm.themes track by theme.id" class="col-xs-2">
+		<div class="row well" style="margin:0px; width:100%">
+			<div class="row">
+				<center><span class="col-xs-4"></span><img src="content/images/cards/{{theme.name}}.png" alt="Image theme {{theme.name}}" ng-click="vm.addCard(theme.id)" class="col-xs-4" style="padding:0px;" /></center> <!-- <span class="col-xs-4"></span><span class="col-xs-4"><center>Image</center></span> -->
+			</div>
+		</div>
+	</div>
+</div>
+
+<br /><br />
+
+Cartes de la main
+<div class="table-responsive" style="display:table-cell; position:absolute; bottom:10px;">
+	<div style="display:table-cell;" ng-repeat="card in vm.cards track by card.id" class="col-xs-2">
+		<!-- <a ui-sref="team.edit({id:personnage.id})" style="color:black;"> -->
+			<div class="row well" style="margin:0px; width:100%">
+				<div class="row">
+					<center><span class="col-xs-4"></span><img src="content/images/cards/{{card.name}}.png" alt="Image personnage" class="col-xs-4" style="padding:0px;" /></center> <!-- <span class="col-xs-4"></span><span class="col-xs-4"><center>Image</center></span> -->
+				</div>
+			</div>
+		<!-- </a> -->
+	</div>
+</div>
