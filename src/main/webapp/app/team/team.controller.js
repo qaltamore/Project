@@ -18,15 +18,15 @@
         function loadAll() {
             Personnage.query(function(result) {
             	
-            	if(vm.game.role == "atk") {
+            	if(vm.game.role == "ATK") {
             		var sliced = result.slice(0, 4);
             		vm.personnages = sliced;
-            		GameService.game.role = "atk";
+            		GameService.game.role = "ATK";
             		GameService.game.roleTxt = "Attaquant";
             	} else {
             		var sliced = result.slice(4);
             		vm.personnages = sliced;
-            		GameService.game.role = "def";
+            		GameService.game.role = "DEF";
             		GameService.game.roleTxt = "Défenseur";
             	}
             	//vm.personnages = result;

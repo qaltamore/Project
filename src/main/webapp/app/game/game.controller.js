@@ -16,7 +16,6 @@
         vm.personnagesAttaquant = [];
         vm.personnagesDefenseur = [];
         vm.cards = [];
-        vm.changeRole = changeRole;
         
         loadAllPersonnages();
         loadAllCards();
@@ -31,16 +30,6 @@
                 vm.personnagesDefenseur = defenseurs;
         		vm.searchQuery = null;
         	});
-        }
-        
-        function changeRole() {
-        	if(vm.game.role == "atk") {
-        		GameService.game.role = "def";
-        		GameService.game.roleTxt = "Défenseur";
-        	} else {
-        		GameService.game.role = "atk";
-        		GameService.game.roleTxt = "Attaquant";
-        	}
         }
         
         function loadAllCards() {

@@ -13,8 +13,10 @@
         var self = this;
 
         self.game = {
-        	role : "atk",
+        	role : "ATK",
         	roleTxt : "Attaquant"
         };
+        
+        self.turn = 1;
     }
 })();
