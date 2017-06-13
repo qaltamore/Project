@@ -56,6 +56,38 @@
                     $state.go('^');
                 });
             }]
+        })
+        .state('draw-details', {
+        	parent: 'draw',
+            url: '/draw-details/{id}',
+            data: {
+                authorities: ['ROLE_USER'],
+                pageTitle: 'jHipsterAppliApp.questionAnswerPlayer.detail.title'
+            },
+            views: {
+                'content@': {
+                    templateUrl: 'app/draw/draw-details.html',
+                    controller: 'DrawDetailsController',
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('questionAnswer');
+                    return $translate.refresh();
+                }],
+                entity: ['$stateParams', 'QuestionAnswer', function($stateParams, QuestionAnswer) {
+                    return QuestionAnswer.get({id : $stateParams.id}).$promise;
+                }],
+                previousState: ["$state", function ($state) {
+                    var currentStateData = {
+                        name: $state.current.name || 'question-answer',
+                        params: $state.params,
+                        url: $state.href($state.current.name, $state.params)
+                    };
+                    return currentStateData;
+                }]
+            }
         });
     }
 

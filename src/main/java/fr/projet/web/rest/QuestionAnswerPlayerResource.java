@@ -41,7 +41,7 @@ public class QuestionAnswerPlayerResource {
     @PostMapping("/question-answer-players")
     @Timed
     public ResponseEntity<QuestionAnswerPlayer> createQuestionAnswerPlayer(@RequestBody QuestionAnswerPlayer questionAnswerPlayer) throws URISyntaxException {
-        log.debug("REST request to save QuestionAnswerPlayer : {}", questionAnswerPlayer);
+    	log.debug("REST request to save QuestionAnswerPlayer : {}", questionAnswerPlayer);
         if (questionAnswerPlayer.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("questionAnswerPlayer", "idexists", "A new questionAnswerPlayer cannot already have an ID")).body(null);
         }

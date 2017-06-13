@@ -109,3 +109,36 @@
 	width:13%;
 	padding:5px 0px;
 }
+
+.cardsDetails {
+	border:2px black solid; 
+	padding:0px 10px; 
+	width:50%; 
+	height:94vh;
+	float:left;
+	margin:0px 5px;
+}
+
+.cardQuestionDetails {
+	font-size: 1.5em;
+	border-bottom: 1px black solid;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom:5px;
+	padding:5px 0px;
+}
+
+.cardAnswersDetails {
+	font-size: 1.5em;
+	margin-bottom: 10px;
+}
+
+.cardRealAnswerDetails {
+	font-size: 1.5em;
+	font-style:italic; 
+	border-top:1px black solid; 
+	position:absolute; 
+	bottom:5px;
+	width:25%;
+	padding:5px 0px;
+}

@@ -14,15 +14,17 @@
 
 <div style="position:absolute; width:100%; height:50%;">
 	<div style="height:100%; width:100%; display:inline" ng-repeat="card in vm.cards track by card.id">
-		<div class="cards">
-			<div class="cardQuestion">{{card.question}}</div>
-			
-			<div class="cardAnswers">. {{card.proposition1}}</div>
-			<div class="cardAnswers">. {{card.proposition2}}</div>
-			<div class="cardAnswers">. {{card.proposition3}}</div>
-			<div class="cardAnswers">. {{card.proposition4}}</div>
-			
-			<div class="cardRealAnswer">{{card.answer}}</div>
-		</div>
+		<a ui-sref="draw-details({id:card.id})" style="color:black">
+			<div class="cards">
+				<div class="cardQuestion">{{card.question}}</div>
+				
+				<div class="cardAnswers">. {{card.proposition1}}</div>
+				<div class="cardAnswers">. {{card.proposition2}}</div>
+				<div class="cardAnswers">. {{card.proposition3}}</div>
+				<div class="cardAnswers">. {{card.proposition4}}</div>
+				
+				<div class="cardRealAnswer">{{card.answer}}</div>
+			</div>
+		</a>
 	</div>
 </div>
