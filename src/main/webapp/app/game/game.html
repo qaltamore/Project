@@ -1,6 +1,6 @@
 <div>
 	<div class="row" style="width:100%;">
-		<div style="border:display:inline; width:70%;" ng-repeat="personnageAtk in vm.personnagesAttaquant track by personnageAtk.id">
+		<div style="width:70%;" ng-repeat="personnageAtk in vm.personnagesAttaquant track by personnageAtk.id">
 			<div class="col-xs-2">
 				<a ui-sref="game.edit({id:personnageAtk.id})" style="color:black;">
 					<img src="content/images/characters/{{personnageAtk.name}}.png" alt="Image {{personnageAtk.name}}"/>

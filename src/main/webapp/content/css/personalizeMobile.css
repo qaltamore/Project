@@ -67,6 +67,7 @@
 	box-shadow: none; 
 }
 
+
 /* Pour la page des cartes */
 
 .cards {
@@ -141,4 +142,35 @@
 	bottom:5px;
 	width:25%;
 	padding:5px 0px;
+}
+
+
+/* Pour la page du fight */
+
+.imgFight {
+	height:100%;
+	width:15%;
+}
+
+.btnFight {
+	width:25%;
+	height:9vh;
+}
+
+.separating {
+	width:65%;
+	display:inline-block;
+}
+
+.actionButtons {
+	width:68%;
+	display:inline-block;
+	height:20vh;
+	vertical-align:top;
+	padding-top:5px;
+}
+
+.separatingActions {
+	width:45%;
+	display:inline-block;
 }

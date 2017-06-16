@@ -1,1 +1,23 @@
-Fight
+<!-- <div style="border:1px black solid; height:50vh; width:100%; background-color:white;">
+	<img src="content/images/animations/fulminight_init.png" alt="animation attaquant" style="height:100%"/><div class="separating"></div>
+	<img src="content/images/animations/bluebot_init.png" alt="animation défenseur" style="height:100%"/>
+</div> -->
+
+<div style="border:1px black solid; height:50vh; width:100%; background-color:white; position:relative;">
+	<img src="content/images/animations/fulminight_init.png" alt="animation attaquant" style="height:40%; position:absolute; left:0; bottom:0;"/>
+	<img src="content/images/animations/bluebot_init.png" alt="animation défenseur" style="height:40%; position:absolute; right:0; bottom:0;"/>
+</div>
+
+<div style="border:1px black solid; margin-top:10px; height:30vh; width:100%">
+	<img src="content/images/characters/{{vm.atkSelected.name}}.png" alt="Image de l'attaquant" class="imgFight"/>
+	<div class="actionButtons">
+		<button class="btn btnFight" style="margin-left:4px" id="basicActionAtk" ng-click="vm.actionSelected('basicActionAtk')">Basique</button> <div class="separatingActions"></div> <button class="btn btnFight" id="basicActionDef" ng-click="vm.actionSelected('basicActionDef')">Basique</button>
+		<center><button class="btn btnFight" ng-click="vm.fightLaunched()">FIGHT</button></center>
+		<button class="btn btnFight" style="margin-left:4px" id="speActionAtk" ng-click="vm.actionSelected('speActionAtk')">Spécial</button> <div class="separatingActions"></div> <button class="btn btnFight" id="speActionDef" ng-click="vm.actionSelected('speActionDef')">Spécial</button>
+	</div>
+	<img src="content/images/characters/{{vm.defSelected.name}}.png" alt="Image du défenseur" class="imgFight"/>
+</div>
+
+<div>
+<span style="float:left">Vie : {{vm.atkSelected.lifePoints}} & Magie : {{vm.atkSelected.magicPoints}}</span> <span style="float:right">Vie : {{vm.defSelected.lifePoints}} & Magie : {{vm.defSelected.magicPoints}}</span>
+</div>

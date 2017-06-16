@@ -1,0 +1,21 @@
+<div style="width:100%" ng-repeat="personnageAtk in vm.personnagesAttaquant track by personnageAtk.id">
+	<div class="col-xs-2">
+		<img src="content/images/characters/{{personnageAtk.name}}.png" id="{{personnageAtk.id}}" alt="Image {{personnageAtk.name}}" ng-click="vm.selectCharacter(personnageAtk.id, 'atk', personnageAtk)"/>
+	 </div>
+</div>
+<br /><br />
+<br /><br />
+<br /><br />
+
+<button class="btn" ng-click="vm.test()">VERSUS</button>
+
+<br /><br />
+<br /><br />
+<br /><br />
+	<div class="row" style="width:100%;">
+		<div style="border:display:inline; width:70%;" ng-repeat="personnageDef in vm.personnagesDefenseur track by personnageDef.id">
+			<div class="col-xs-2">
+				<img src="content/images/characters/{{personnageDef.name}}.png" id="{{personnageDef.id}}" alt="Image {{personnageDef.name}}" ng-click="vm.selectCharacter(personnageDef.id, 'def', personnageDef)"/>
+			 </div>
+		</div>
+	</div>
