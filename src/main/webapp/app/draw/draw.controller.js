@@ -10,7 +10,8 @@
     function DrawController ($scope, $state, Theme, QuestionAnswerPlayer, QuestionAnswer, QuestionAnswerTheme, Player, GameService) {
         var vm = this;
 
-        vm.game = GameService.game;
+        vm.game = JSON.parse(localStorage.getItem("gameStorage"));
+        vm.turn = JSON.parse(localStorage.getItem("turnStorage"));
         vm.themes = [];
         vm.cards = [];
         vm.cardsDB = [];
@@ -57,15 +58,15 @@
         	else {
         		//On définit le niveau des questions
         		var level = 1;
-        		if(vm.game.turn > 10 && vm.game.turn <= 20) {
+        		if(vm.turn > 10 && vm.turn <= 20) {
         			level = 2;
-        		} else if(vm.game.turn > 20 && vm.game.turn <= 30) {
+        		} else if(vm.turn > 20 && vm.turn <= 30) {
         			level = 2;
-        		} else if(vm.game.turn > 30 && vm.game.turn <= 40) {
+        		} else if(vm.turn > 30 && vm.turn <= 40) {
         			level = 3;
-        		} else if(vm.game.turn > 40 && vm.game.turn <= 50) {
+        		} else if(vm.turn > 40 && vm.turn <= 50) {
         			level = 4;
-        		} else if(vm.game.turn > 50) {
+        		} else if(vm.turn > 50) {
         			level = 5;
         		}
         		
@@ -99,6 +100,7 @@
         				qa.player = player;
         				qa.questionAnswer = vm.cardsDB[i].questionAnswer;
         				QuestionAnswerPlayer.save(qa, function() {vm.cards.push(vm.cardsDB[i].questionAnswer); vm.cardsInHands.push(vm.cardsDB[i]); return;}, function() {console.log("Erreur d'insertion de la carte dans la table QuestionAnswerPlayer"); return;});
+        				//$state.go('reload');
         				return;
         			}
         		}

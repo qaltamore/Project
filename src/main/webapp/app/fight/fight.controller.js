@@ -11,9 +11,15 @@
         var vm = this;
 
         vm.game = GameService.game;
+        vm.game = JSON.parse(localStorage.getItem("gameStorage"));
+        console.log(vm.game);
         vm.players = [];
-        vm.atkSelected = FightService.atk;
-        vm.defSelected = FightService.def;
+        
+        vm.atkSelected = JSON.parse(localStorage.getItem("attaquantStorage"));
+        console.log(vm.atkSelected);
+        
+        vm.defSelected = JSON.parse(localStorage.getItem("defenseurStorage"));
+        console.log(vm.defSelected);
         
         vm.actionSelected = actionSelected;
         vm.fightLaunched = fightLaunched;
@@ -41,9 +47,9 @@
         
         function fightLaunched() {
         	if(vm.atkActionSelected == "basicActionAtk") {
-        		var atk = vm.atkSelected.attackPoints;
+        		var atk = vm.atkSelected.attackPoints + wheelOfTypes(vm.atkSelected.type, vm.defSelected.type);
         		//console.log("Attaque : " + atk);
-        		var def = vm.defSelected.defensePoints;
+        		var def = vm.defSelected.defensePoints + wheelOfTypes(vm.defSelected.type, vm.atkSelected.type);
         		//console.log("Défense : " + def);
         		var lifeDef = vm.defSelected.lifePoints;
         		//console.log("Vie Défenseur Avant Fight : " + lifeDef);
@@ -67,7 +73,7 @@
         			}
         		}
         		
-        		//console.log("Damages : " + damages + " & Protection : " + protection);
+        		console.log("Damages : " + damages + " & Protection : " + protection);
         		
         		res = damages - protection;
         		if(res < 0)
@@ -75,8 +81,51 @@
         		
         		lifeDef = lifeDef - res;
         		
+        		var updatedPersonnage = vm.defSelected;
+        		updatedPersonnage.lifePoints = lifeDef;
+        		
+        		Personnage.update(updatedPersonnage, function() {console.log("Réussi");}, function() {console.log("Raté");});
+        		//activité information ressource
+        		
         		//console.log("Vie Défenseur Après Fight : " + lifeDef);
+        		
+        		
         	}
+        }
+        
+        function wheelOfTypes(type1, type2) {
+        	var bonus = 0;
+        	
+        	if(type1 == "VIT") {
+        		if(type2 == "FOR") {
+        			bonus++;
+        		}
+        	} else if(type1 == "FOR") {
+        		if(type2 == "TEC") {
+        			bonus++;
+        		}
+        	} else if(type1 == "TEC") {
+        		if(type2 == "VIT") {
+        			bonus++;
+        		}
+        	}
+        	
+        	return bonus;
+        }
+        
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
         }
     }
 })();

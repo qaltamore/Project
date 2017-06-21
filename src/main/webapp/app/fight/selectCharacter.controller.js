@@ -52,6 +52,8 @@
         function test() {
         	FightService.atk = vm.atkSelected;
         	FightService.def = vm.defSelected;
+        	localStorage.setItem("attaquantStorage", JSON.stringify(FightService.atk));
+        	localStorage.setItem("defenseurStorage", JSON.stringify(FightService.def));
         	if(vm.atkSelected != 0 && vm.defSelected != 0) {
         		$state.go('fight');
         	}

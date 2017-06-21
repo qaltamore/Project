@@ -5,9 +5,9 @@
         .module('jHipsterAppliApp')
         .controller('PersonnageGameController', PersonnageGameController);
 
-    PersonnageGameController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Personnage'];
+    PersonnageGameController.$inject = ['$timeout', '$state', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Personnage', 'GameService'];
 
-    function PersonnageGameController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Personnage) {
+    function PersonnageGameController ($timeout, $state, $scope, $stateParams, $uibModalInstance, entity, Personnage, GameService) {
         var vm = this;
 
         vm.personnage = entity;
@@ -24,10 +24,17 @@
 
         function save () {
             vm.isSaving = true;
-            if (vm.personnage.id !== null) {
-                Personnage.update(vm.personnage, onSaveSuccess, onSaveError);
+            var pvPerso = vm.personnage.name + "PV";
+            var manaPerso = vm.personnage.name + "MANA";
+            if(vm.personnage.lifePoints <= GameService.listePersonnages[pvPerso] && vm.personnage.magicPoints <= GameService.listePersonnages[manaPerso]) {
+            	//console.log("PV saisis : " + vm.personnage.lifePoints + " & PV de la liste : " + GameService.listePersonnages[vm.personnage.name]);
+            	if (vm.personnage.id !== null) {
+	                Personnage.update(vm.personnage, onSaveSuccess, onSaveError);
+	            } else {
+	                Personnage.save(vm.personnage, onSaveSuccess, onSaveError);
+	            }
             } else {
-                Personnage.save(vm.personnage, onSaveSuccess, onSaveError);
+            	alert("Ce personnage ne peut avoir plus de " + GameService.listePersonnages[pvPerso] + " points de vie et " +  GameService.listePersonnages[manaPerso] + " points de magie");
             }
         }
 

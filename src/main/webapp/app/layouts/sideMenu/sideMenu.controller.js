@@ -10,9 +10,17 @@
     function SideMenuController ($stateParams, $state, GameService) {
         var vm = this;
         
-        vm.game = GameService.game;
+        //vm.game = GameService.game;
+        if(localStorage.getItem("gameStorage") == null)
+        	localStorage.setItem("gameStorage", JSON.stringify(GameService.game));
+        vm.game = JSON.parse(localStorage.getItem("gameStorage"));
+        
         vm.changeRole = changeRole;
-        vm.turn = GameService.turn;
+        
+        if(localStorage.getItem("turnStorage") == null)
+        	localStorage.setItem("turnStorage", JSON.stringify(GameService.turn));
+        vm.turn = JSON.parse(localStorage.getItem("turnStorage"));
+        //vm.turn = GameService.turn;
         vm.increaseTurn = increaseTurn;
         
         function changeRole() {
@@ -23,11 +31,13 @@
         		GameService.game.role = "ATK";
         		GameService.game.roleTxt = "Attaquant";
         	}
+        	localStorage.setItem("gameStorage", JSON.stringify(GameService.game));
         	$state.reload();
         }
         
         function increaseTurn() {
-        	GameService.turn = GameService.turn + 1;
+        	GameService.turn = vm.turn + 1;
+        	localStorage.setItem("turnStorage", JSON.stringify(GameService.turn));
         	$state.reload();
         }
     }
