@@ -58,15 +58,15 @@
         	else {
         		//On définit le niveau des questions
         		var level = 1;
-        		if(vm.turn > 10 && vm.turn <= 20) {
+        		if(vm.turn >= 10 && vm.turn < 20) {
         			level = 2;
-        		} else if(vm.turn > 20 && vm.turn <= 30) {
+        		} else if(vm.turn >= 20 && vm.turn < 30) {
         			level = 2;
-        		} else if(vm.turn > 30 && vm.turn <= 40) {
+        		} else if(vm.turn >= 30 && vm.turn < 40) {
         			level = 3;
-        		} else if(vm.turn > 40 && vm.turn <= 50) {
+        		} else if(vm.turn >= 40 && vm.turn < 50) {
         			level = 4;
-        		} else if(vm.turn > 50) {
+        		} else if(vm.turn >= 50) {
         			level = 5;
         		}
         		
